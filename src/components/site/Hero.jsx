@@ -21,17 +21,7 @@ export default function Hero() {
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
         {/* Copy column */}
         <div className="lg:col-span-8">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.1 }}
-            className="flex items-center gap-4"
-          >
-            <span className="h-px w-10 bg-gold" />
-            <span className="overline">TTG Travels · Goa</span>
-          </motion.div>
-
-          <h1 className="mt-8 font-display text-ink tracking-tight leading-[1.02] text-[13vw] sm:text-[10vw] lg:text-[7.4vw]">
+          <h1 className="font-display text-ink tracking-tight leading-[1.02] text-[13vw] sm:text-[10vw] lg:text-[7.4vw]">
             {lines.map((ln, i) => (
               <span key={i} className="mask-line">
                 <motion.span
