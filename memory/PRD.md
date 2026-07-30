@@ -32,15 +32,19 @@
 - Global CSS tokens, custom `.btn`, `.goa-table`, `.hover-underline`, `.overline`, marquee track, mask-line reveals.
 - Framer-motion `Reveal` wrapper + `maskLine`, `fadeUp` variants; Lenis initialised in `App.js`.
 - **Home** — kinetic hero (masked line reveal + spotlight image w/ hairline gold rule + micro parallax), single-line horizontal marquee, 3-card service overview with vehicle line-art icons, numbered manifesto (01–04), trust strip, closing CTA band.
-- **Cars with Driver** — 5 pricing tables (Sedan / Ertiga+Innova / Innova / Crysta / Hycross) reproduced verbatim + Driver Night table.
-- **Self-Drive** — 13-row pricing table + 11 booking notes in numbered two-column list.
+- **Cars with Driver** — 5-card fleet grid linking to detail pages + 5 pricing tables (Sedan / Ertiga+Innova / Innova / Crysta / Hycross) + Driver Night table.
+- **Self-Drive** — 13-card fleet grid linking to detail pages + 13-row pricing table + 11 booking notes.
 - **Group Travel** — Tempo Traveller & Urbania cards + 2 pricing tables + Driver Night.
-- **About & Contact** — editorial bio, contact rows (address/phone/email/hours/instagram), map iframe, 6-item FAQ accordion (shadcn), final CTA band.
+- **About & Contact** — editorial bio, contact rows, map iframe, **Reviews Wall (6 curated 5-star testimonials with Google/Instagram source glyphs, 4.9★ / 180+ trips stat block)**, 6-item FAQ accordion, final CTA band.
+- **Vehicle detail pages** (`/vehicle/:slug`) — 18 dynamic pages (5 chauffeur + 13 self-drive), each with breadcrumb, masked line-by-line hero H1 (splits on first space), spotlight hero image with gold hairline, story paragraph + numbered highlights, at-a-glance specs (Seats/Transmission/Fuel/Luggage/AC), cabin + exterior photo strip, embedded pricing table, related-vehicles grid, and per-vehicle WhatsApp CTA. Unknown slugs redirect to `/`.
+- **Vehicle imagery**: Curated Unsplash Indian-rental-appropriate photography (Toyota Innova, compact SUVs, Dzire/Baleno-style sedans, Thar off-road, white large SUVs).
 - Header: text wordmark left, 5 nav links w/ maroon hover-underline + active state, persistent Call + WhatsApp buttons, mobile hamburger + full-screen mobile nav.
 - Mobile sticky bottom bar (Call maroon + WhatsApp green) — appears after 320px scroll.
 - Footer: brand block, contact block, sitemap, Instagram link, Bordeaux copyright bar.
 - SEO: page title, description, LocalBusiness JSON-LD schema in `index.html`.
-- **Testing:** 57/57 assertions passed on iteration_1 (all routes, all hrefs, all pricing values, FAQ, mobile bar, no console errors).
+- **Testing:**
+  - iteration_1: 57/57 assertions passed (base site).
+  - iteration_2: 68/68 assertions passed (vehicle deep pages + fleet grids + reviews wall + base-page regression).
 
 ## Backlog / Not yet done
 - P1: Add remaining Google Business profile URL (once client provides).
