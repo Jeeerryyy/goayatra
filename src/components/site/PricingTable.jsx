@@ -38,26 +38,28 @@ export default function PricingTable({
       </div>
 
       <Reveal className="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0">
-        <table className="goa-table min-w-[640px]">
-          <thead>
-            <tr>
-              {columns.map((c) => (
-                <th key={c}>{c}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r, i) => (
-              <tr key={i}>
-                {keys.map((k, j) => (
-                  <td key={k} className={j === 1 ? "price" : ""}>
-                    {r[k]}
-                  </td>
+        <div className="rounded-3xl bg-bg-alt/70 p-6 md:p-8 border border-hairline/80 shadow-sm overflow-hidden">
+          <table className="goa-table min-w-[640px]">
+            <thead>
+              <tr>
+                {columns.map((c) => (
+                  <th key={c}>{c}</th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr key={i}>
+                  {keys.map((k, j) => (
+                    <td key={k} className={j === 1 ? "price" : ""}>
+                      {r[k]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Reveal>
     </section>
   );

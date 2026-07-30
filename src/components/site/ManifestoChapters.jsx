@@ -19,24 +19,20 @@ export default function ManifestoChapters() {
           </div>
         </div>
 
-        <div className="divide-y divide-hairline border-t border-hairline">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {manifesto.map((m, i) => (
             <Reveal
               key={m.n}
               delay={i * 0.06}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-10 md:py-14"
+              className="rounded-3xl bg-bg-alt/80 p-8 md:p-10 border border-hairline/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
             >
-              <div className="md:col-span-2">
-                <span className="chapter-num">{m.n}</span>
-              </div>
-              <div className="md:col-span-4">
-                <h3 className="font-display text-3xl md:text-4xl text-ink">
+              <div>
+                <span className="chapter-num text-sm text-maroon font-semibold">{m.n}</span>
+                <h3 className="mt-3 font-display text-2xl md:text-3xl text-ink">
                   {m.title}
                 </h3>
               </div>
-              <div className="md:col-span-6">
-                <p className="text-lg leading-relaxed text-ink">{m.body}</p>
-              </div>
+              <p className="mt-4 text-base leading-relaxed text-ink-muted">{m.body}</p>
             </Reveal>
           ))}
         </div>

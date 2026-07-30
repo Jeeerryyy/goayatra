@@ -14,33 +14,32 @@ export default function VehicleCard({ vehicle, index = 0, testId }) {
         className="group block relative"
       >
         {/* Image */}
-        <div className="relative aspect-[5/4] overflow-hidden bg-bg-alt">
+        <div className="relative aspect-[5/4] overflow-hidden rounded-3xl bg-bg-alt shadow-sm transition-all duration-300 group-hover:shadow-md">
           <img
             src={vehicle.images.hero}
             alt={vehicle.name}
-            className="absolute inset-0 h-full w-full object-cover transition-[filter,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:brightness-95"
+            className="absolute inset-0 h-full w-full object-cover transition-[filter,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:brightness-95"
             loading="lazy"
           />
-          <span className="pointer-events-none absolute inset-2 border border-bg/70" />
-          <span className="pointer-events-none absolute inset-6 border-t border-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
 
         {/* Meta */}
-        <div className="pt-5 flex items-start justify-between gap-4 border-t border-hairline mt-4">
+        <div className="pt-4 flex items-start justify-between gap-4">
           <div>
-            <p className="overline pt-4">{vehicle.category}</p>
-            <h3 className="mt-2 font-display text-2xl md:text-3xl text-ink leading-tight">
+            <h3 className="font-display text-2xl md:text-3xl text-ink leading-tight group-hover:text-maroon transition-colors">
               {vehicle.name}
             </h3>
-            <p className="mt-2 text-sm text-ink-muted max-w-xs">
+            <p className="mt-1 text-sm text-ink-muted max-w-xs">
               {vehicle.tagline}
             </p>
           </div>
-          <ArrowUpRight
-            size={18}
-            strokeWidth={1.6}
-            className="mt-6 shrink-0 text-maroon transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
-          />
+          <div className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-maroon/5 text-maroon transition-all duration-300 group-hover:bg-maroon group-hover:text-white">
+            <ArrowUpRight
+              size={18}
+              strokeWidth={2}
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </div>
         </div>
       </Link>
     </Reveal>

@@ -50,10 +50,9 @@ export default function ReviewsWall() {
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-14 items-end">
           <div className="md:col-span-4">
-            <p className="overline">Reviews · {reviewsMeta.sourceNote}</p>
             <Reveal
               as="h2"
-              className="mt-4 font-display text-4xl md:text-5xl leading-tight text-ink tracking-tight"
+              className="font-display text-4xl md:text-5xl leading-tight text-ink tracking-tight"
             >
               What people say <em className="italic text-maroon font-normal">after the trip.</em>
             </Reveal>
@@ -75,7 +74,7 @@ export default function ReviewsWall() {
             <Reveal
               key={r.id}
               delay={i * 0.06}
-              className={`border-t-2 border-gold border-x border-b border-hairline bg-bg-alt p-8 md:p-10 ${
+              className={`rounded-3xl border border-hairline/80 bg-bg-alt/90 shadow-sm hover:shadow-md transition-shadow p-8 md:p-10 ${
                 // Asymmetric spans — first two are wider, then rotate
                 i === 0
                   ? "md:col-span-4"

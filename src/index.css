@@ -47,47 +47,33 @@
 
 @layer components {
   .font-display {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
   }
   .font-body {
-    font-family: "Inter", sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
 
   .overline {
-    font-family: "Inter", sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.24em;
-    font-weight: 500;
+    font-weight: 600;
     color: #5c1a1a;
-  }
-
-  .rule-gold {
-    height: 1px;
-    background: #b08d57;
-    width: 100%;
-    display: block;
-  }
-
-  .rule-hair {
-    height: 1px;
-    background: #e4ded3;
-    width: 100%;
-    display: block;
   }
 
   .hover-underline {
     background-image: linear-gradient(#5c1a1a, #5c1a1a);
     background-position: 0% 100%;
     background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size 400ms cubic-bezier(0.22, 1, 0.36, 1);
+    background-size: 0% 2px;
+    transition: background-size 300ms ease;
     padding-bottom: 2px;
   }
   .hover-underline:hover,
   .hover-underline[data-active="true"] {
-    background-size: 100% 1px;
+    background-size: 100% 2px;
   }
 
   .btn {
@@ -95,16 +81,16 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: 0.02em;
-    border-radius: 4px;
-    transition: background-color 240ms ease, color 240ms ease,
-      border-color 240ms ease, opacity 240ms ease;
+    border-radius: 9999px;
+    transition: all 240ms ease;
     line-height: 1;
     white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(92, 26, 26, 0.08);
   }
   .btn-maroon {
     background: #5c1a1a;

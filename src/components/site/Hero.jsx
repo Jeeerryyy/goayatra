@@ -113,7 +113,7 @@ function SpotlightImage() {
       transition={{ duration: 1.4, ease, delay: 0.4 }}
       className="lg:col-span-4 relative"
     >
-      <div className="relative aspect-[3/4] w-full overflow-hidden">
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-lg">
         <motion.img
           src="https://images.unsplash.com/photo-1638217989553-e6d87c341f68?auto=format&fit=crop&w=1200&q=80"
           alt="Palm-fringed Goa coast"
@@ -122,13 +122,10 @@ function SpotlightImage() {
           animate={{ scale: 1, y: 0 }}
           transition={{ duration: 2.2, ease }}
         />
-        {/* Clipped frame — thin gold hairline signature */}
-        <span className="pointer-events-none absolute inset-2 border border-bg/80" />
-        <span className="pointer-events-none absolute inset-6 border-t border-gold" />
       </div>
-      <div className="mt-3 flex items-center justify-between text-[10px] tracking-[0.24em] uppercase text-ink-muted">
-        <span>Fig. 01 — the coast</span>
-        <span>N 15.55° · E 73.83°</span>
+      <div className="mt-3 flex items-center justify-between text-[11px] tracking-wider text-ink-muted">
+        <span>Goa Coastline</span>
+        <span>Goa, India</span>
       </div>
     </motion.div>
   );
