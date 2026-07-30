@@ -15,7 +15,7 @@ import { MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
 
 export default function AboutContact() {
   return (
-    <main data-testid="about-page" className="pt-32 md:pt-40">
+    <main data-testid="about-page" className="pt-24 md:pt-28">
       {/* Editorial header */}
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-16 md:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">

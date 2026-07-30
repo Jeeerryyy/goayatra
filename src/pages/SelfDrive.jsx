@@ -10,7 +10,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function SelfDrive() {
   return (
-    <main data-testid="self-drive-page" className="pt-32 md:pt-40">
+    <main data-testid="self-drive-page" className="pt-24 md:pt-28">
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-16 md:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
           <div className="md:col-span-8">

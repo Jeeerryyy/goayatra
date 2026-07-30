@@ -16,12 +16,12 @@ export default function Hero() {
   return (
     <section
       data-testid="hero"
-      className="relative pt-32 md:pt-40 pb-20 md:pb-28 border-b border-hairline"
+      className="relative pt-24 md:pt-28 pb-10 md:pb-14 border-b border-hairline"
     >
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
         {/* Copy column */}
         <div className="lg:col-span-8">
-          <h1 className="font-display text-ink tracking-tight leading-[1.02] text-[13vw] sm:text-[10vw] lg:text-[7.4vw]">
+          <h1 className="font-display text-ink tracking-tight leading-[1.04] text-[9vw] sm:text-[6.5vw] lg:text-[4.8vw]">
             {lines.map((ln, i) => (
               <span key={i} className="mask-line">
                 <motion.span
@@ -53,7 +53,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.7 }}
-            className="mt-10 max-w-xl text-lg text-ink leading-relaxed"
+            className="mt-6 max-w-xl text-base md:text-lg text-ink leading-relaxed"
           >
             {BRAND.positioning} No booking engine, no forms, no waiting. Tap
             <span className="text-maroon"> Call </span>
@@ -66,7 +66,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.9 }}
-            className="mt-10 flex flex-wrap gap-3"
+            className="mt-6 flex flex-wrap gap-3"
           >
             <CallButton label="Call +91 7249216623" size="lg" testId="hero-call" />
             <WhatsAppButton
@@ -81,7 +81,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease, delay: 1.1 }}
-            className="mt-14 grid grid-cols-3 max-w-md text-[11px] tracking-[0.22em] uppercase text-ink-muted"
+            className="mt-8 grid grid-cols-3 max-w-md text-[11px] tracking-[0.22em] uppercase text-ink-muted"
           >
             <div className="border-t border-gold pt-3">
               <div className="text-ink font-display text-2xl leading-none">24/7</div>
