@@ -27,8 +27,7 @@ export default function ManifestoChapters() {
               className="rounded-3xl bg-bg-alt/80 p-8 md:p-10 border border-hairline/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
-                <span className="chapter-num text-sm text-maroon font-semibold">{m.n}</span>
-                <h3 className="mt-3 font-display text-2xl md:text-3xl text-ink">
+                <h3 className="font-display text-2xl md:text-3xl text-ink">
                   {m.title}
                 </h3>
               </div>

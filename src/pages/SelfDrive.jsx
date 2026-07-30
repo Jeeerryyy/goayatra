@@ -43,10 +43,7 @@ export default function SelfDrive() {
         className="mx-auto max-w-[1440px] px-6 md:px-10 pb-16 md:pb-24"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-10 border-t border-hairline pt-10 md:pt-16">
-          <div className="md:col-span-1">
-            <span className="chapter-num">00</span>
-          </div>
-          <div className="md:col-span-11">
+          <div className="md:col-span-12">
             <h2 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
               Thirteen cars <em className="italic text-maroon font-normal">on the yard.</em>
             </h2>
@@ -68,10 +65,7 @@ export default function SelfDrive() {
         className="mx-auto max-w-[1440px] px-6 md:px-10"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-8 border-t border-hairline pt-10 md:pt-16">
-          <div className="md:col-span-1">
-            <span className="chapter-num">01</span>
-          </div>
-          <div className="md:col-span-7">
+          <div className="md:col-span-12">
             <h3 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
               Fleet & rates <em className="italic text-maroon font-normal">per day</em>
             </h3>

@@ -81,10 +81,7 @@ export default function GroupTravel() {
           className="border-t border-hairline pt-10 md:pt-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-8">
-            <div className="md:col-span-1">
-              <span className="chapter-num">03</span>
-            </div>
-            <div className="md:col-span-11">
+            <div className="md:col-span-12">
               <h3 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
                 Driver night — <em className="italic text-maroon font-normal">compulsory overtime</em>
               </h3>

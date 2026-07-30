@@ -42,10 +42,7 @@ export default function CarsWithDriver() {
           className="border-t border-hairline pt-10 md:pt-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-10">
-            <div className="md:col-span-1">
-              <span className="chapter-num">00</span>
-            </div>
-            <div className="md:col-span-11">
+            <div className="md:col-span-12">
               <h2 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
                 The <em className="italic text-maroon font-normal">line-up.</em>
               </h2>
@@ -68,7 +65,6 @@ export default function CarsWithDriver() {
             tagline={t.tagline}
             rows={t.rows}
             waMessage={`Hi Goa Yatra, I'd like to enquire about the ${t.name} chauffeur package.`}
-            index={`0${i + 1}`}
             testId={`chauffeur-${t.id}`}
           />
         ))}
@@ -79,10 +75,7 @@ export default function CarsWithDriver() {
           className="border-t border-hairline pt-10 md:pt-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-8">
-            <div className="md:col-span-1">
-              <span className="chapter-num">06</span>
-            </div>
-            <div className="md:col-span-11">
+            <div className="md:col-span-12">
               <h3 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
                 Driver night — <em className="italic text-maroon font-normal">compulsory overtime</em>
               </h3>

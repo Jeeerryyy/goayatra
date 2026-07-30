@@ -242,10 +242,7 @@ export default function Vehicle() {
         className="border-t border-hairline mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end mb-10">
-          <div className="md:col-span-1">
-            <span className="chapter-num">04</span>
-          </div>
-          <div className="md:col-span-7">
+          <div className="md:col-span-12">
             <h2 className="font-display text-4xl md:text-5xl leading-tight text-ink tracking-tight">
               What it costs
             </h2>

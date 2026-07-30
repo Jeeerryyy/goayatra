@@ -17,10 +17,7 @@ export default function PricingTable({
       className="border-t border-hairline pt-10 md:pt-16"
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-8">
-        <div className="md:col-span-1">
-          {index && <span className="chapter-num">{index}</span>}
-        </div>
-        <div className="md:col-span-7">
+        <div className="md:col-span-8">
           <h3 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
             {name}
           </h3>
