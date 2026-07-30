@@ -17,20 +17,13 @@ export default function PricingTable({
       className="pt-6 md:pt-10"
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-8">
-        <div className="md:col-span-8">
+        <div className="md:col-span-12">
           <h3 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
             {name}
           </h3>
           {tagline && (
-            <p className="mt-3 text-sm text-ink-muted max-w-md">{tagline}</p>
+            <p className="mt-2 text-sm text-ink-muted max-w-lg">{tagline}</p>
           )}
-        </div>
-        <div className="md:col-span-4 flex md:justify-end">
-          <WhatsAppButton
-            label="Enquire on WhatsApp"
-            message={waMessage}
-            testId={`enquire-${testId || name?.toLowerCase().replace(/\s+/g, "-")}`}
-          />
         </div>
       </div>
 

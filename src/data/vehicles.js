@@ -7,31 +7,30 @@ const un = (id, w = 1600) =>
 // Curated photo library — reused across the same category so the site stays cohesive.
 // All images sourced from Unsplash — Indian rental-appropriate vehicles (Innova, SUVs, compact cars).
 const IMG = {
-  // Sedan / hatchback — white/silver everyday cars
-  sedanExt: un("photo-1732812606620-76b62e4f263e"),
-  sedanExt2: un("photo-1685019718640-6e562edc365e"),
+  swift: "/images/cars/swift.png",
+  thar: "/images/cars/thar.png",
+  fortuner: "/images/cars/fortuner.png",
+  innova: "/images/cars/innova.png",
+  baleno: "/images/cars/baleno.png",
+  tempo: "/images/cars/tempo.png",
+  sedanExt: "/images/cars/swift.png",
+  sedanExt2: "/images/cars/swift.png",
   sedanCab: un("photo-1503376780353-7e6692767b70"),
-  // MPV — Toyota Innova / similar
-  mpvExt: un("photo-1748215210950-536c6621629a"),
-  mpvExt2: un("photo-1748215210939-ad8b6c8c086d"),
+  mpvExt: "/images/cars/innova.png",
+  mpvExt2: "/images/cars/innova.png",
   mpvCab: un("photo-1580273916550-e323be2ae537"),
-  // Compact SUV — Indian roads
-  suvExt: un("photo-1622791905066-0fe6af17ad80"),
-  suvExt2: un("photo-1745241497130-aa075fef0e97"),
+  suvExt: "/images/cars/thar.png",
+  suvExt2: "/images/cars/thar.png",
   suvCab: un("photo-1449965408869-eaa3f722e40d"),
-  // Off-road (Thar / Wrangler)
-  thar: un("photo-1519641471654-76ce0107ad1b"),
-  thar2: un("photo-1732812612173-643cd3422b73"),
+  thar: "/images/cars/thar.png",
+  thar2: "/images/cars/thar.png",
   tharCab: un("photo-1503736334956-4c8f8e92946d"),
-  // Large SUV (Fortuner-style)
-  fort: un("photo-1715412098852-eee232c23a07"),
-  fort2: un("photo-1732812617680-32063448d81f"),
+  fort: "/images/cars/fortuner.png",
+  fort2: "/images/cars/fortuner.png",
   fortCab: un("photo-1544273677-2c5c81b6c8a9"),
-  // Van / Tempo Traveller (used only on group travel — not wired to vehicle pages)
-  vanExt: un("photo-1580414057403-c5f451f30e1c"),
+  vanExt: "/images/cars/tempo.png",
   vanCab: un("photo-1592840566671-95cef8935e58"),
-  // Coach / Urbania
-  coachExt: un("photo-1544620347-c4fd4a3d5957"),
+  coachExt: "/images/cars/tempo.png",
   coachCab: un("photo-1512363175195-6da22a2b30ed"),
 };
 
