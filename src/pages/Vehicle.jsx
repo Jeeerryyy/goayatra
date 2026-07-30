@@ -1,20 +1,90 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Users, Fuel, Snowflake, Gauge, Briefcase } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, ChevronLeft, ChevronRight, Users, Fuel, Snowflake, Gauge, Briefcase } from "lucide-react";
 import Reveal from "@/components/site/Reveal";
 import CTABand from "@/components/site/CTABand";
 import { CallButton, WhatsAppButton } from "@/components/site/CTAButtons";
 import VehicleCard from "@/components/site/VehicleCard";
 import { getVehicle, vehicles } from "@/data/vehicles";
 import { chauffeurTables, selfDriveRows } from "@/data/pricing";
-import { ease, maskLine } from "@/lib/motion";
 
 function getChauffeurTable(id) {
   return chauffeurTables.find((t) => t.id === id);
 }
 function getSelfDriveRow(name) {
   return selfDriveRows.find((r) => r.veh === name);
+}
+
+function CarImageCarousel({ images, carName }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="relative rounded-3xl overflow-hidden bg-bg-alt border border-hairline/80 shadow-md aspect-[4/3] md:aspect-[16/11]">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentIndex}
+          src={images[currentIndex]}
+          alt={`${carName} photo ${currentIndex + 1}`}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </AnimatePresence>
+
+      {/* Navigation Controls */}
+      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+        {/* Pagination Indicators */}
+        <div className="flex items-center gap-2 bg-bg/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-hairline/60">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                idx === currentIndex ? "w-6 bg-maroon" : "w-2 bg-maroon/30 hover:bg-maroon/50"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Prev/Next Buttons */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={prevSlide}
+            aria-label="Previous image"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-bg/90 backdrop-blur-md text-ink hover:bg-maroon hover:text-white transition-colors shadow-sm"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={nextSlide}
+            aria-label="Next image"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-bg/90 backdrop-blur-md text-ink hover:bg-maroon hover:text-white transition-colors shadow-sm"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default function Vehicle() {
@@ -44,10 +114,12 @@ export default function Vehicle() {
 
   const waMsg = `Hi Goa Yatra, I'd like to enquire about the ${v.name}.`;
 
+  const carImages = [v.images?.hero, v.images?.cabin, v.images?.exterior].filter(Boolean);
+
   return (
     <main data-testid={`vehicle-page-${v.slug}`} className="pt-20 md:pt-24">
       {/* Breadcrumb */}
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-2">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-4">
         <div className="flex items-center gap-3 text-xs tracking-wider uppercase text-ink-muted">
           <Link
             to="/fleet"
@@ -62,314 +134,171 @@ export default function Vehicle() {
         </div>
       </div>
 
-      {/* Hero */}
+      {/* Hero section */}
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-12 md:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-7">
-            <p className="overline">{v.category}</p>
-            <h1 className="mt-4 font-display leading-[1.02] tracking-tight text-ink text-6xl md:text-7xl lg:text-[6.4vw]">
-              <span className="mask-line">
-                <motion.span
-                  className="block"
-                  variants={maskLine}
-                  initial="hidden"
-                  animate="visible"
-                  custom={0}
-                >
-                  {v.name.split(" ")[0]}
-                </motion.span>
-              </span>
-              {v.name.split(" ").length > 1 && (
-                <span className="mask-line">
-                  <motion.span
-                    className="block italic text-maroon"
-                    variants={maskLine}
-                    initial="hidden"
-                    animate="visible"
-                    custom={1}
-                  >
-                    {v.name.split(" ").slice(1).join(" ")}
-                  </motion.span>
-                </span>
-              )}
+            <span className="text-xs uppercase font-semibold text-maroon tracking-widest">{v.category}</span>
+            <h1 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl text-ink tracking-tight leading-tight">
+              {v.name}
             </h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease, delay: 0.55 }}
-              className="mt-8 max-w-xl text-lg text-ink leading-relaxed"
-            >
+            <p className="mt-4 text-base md:text-lg text-ink-muted leading-relaxed max-w-xl">
               {v.tagline}
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease, delay: 0.7 }}
-              className="mt-8 flex flex-wrap gap-3"
-            >
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
               <CallButton label="Call to book" size="lg" testId="vehicle-call" />
               <WhatsAppButton
-                label={`WhatsApp about the ${v.name}`}
+                label={`WhatsApp about ${v.name}`}
                 size="lg"
                 message={waMsg}
                 testId="vehicle-whatsapp"
               />
-            </motion.div>
+            </div>
+
+            {/* Quick Specs Grid */}
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-bg-alt/70 rounded-2xl p-5 border border-hairline/60">
+              <SpecItem Icon={Users} label="Seats" value={v.seats} />
+              <SpecItem Icon={Gauge} label="Transmission" value={v.transmission} />
+              <SpecItem Icon={Fuel} label="Fuel" value={v.fuel} />
+              <SpecItem Icon={Briefcase} label="Luggage" value={v.luggage} />
+            </div>
           </div>
 
-          {/* Hero image */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.4, ease, delay: 0.35 }}
-            className="lg:col-span-5"
-          >
-            <div className="relative aspect-[4/5] overflow-hidden bg-bg-alt">
-              <motion.img
-                src={v.images.hero}
-                alt={`${v.name} — hero`}
-                className="absolute inset-0 h-full w-full object-cover"
-                initial={{ scale: 1.06 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 2.4, ease }}
-              />
-              <span className="pointer-events-none absolute inset-2 border border-bg/70" />
-              <span className="pointer-events-none absolute inset-6 border-t border-gold" />
-            </div>
-            <div className="mt-3 flex items-center justify-between text-[10px] tracking-[0.24em] uppercase text-ink-muted">
-              <span>Fig. — {v.name}</span>
-              <span>{v.category}</span>
-            </div>
-          </motion.div>
+          {/* Swipe Carousel for Car Images */}
+          <div className="lg:col-span-5">
+            <CarImageCarousel images={carImages} carName={v.name} />
+          </div>
         </div>
       </section>
 
-      {/* Story + Specs */}
+      {/* Story & Highlights */}
       <section
         data-testid="vehicle-story"
-        className="border-t border-hairline mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24"
+        className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-hairline/40"
       >
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <div className="md:col-span-7">
             <Reveal>
-              <p className="overline">The story</p>
-              <p className="mt-6 font-display text-2xl md:text-3xl leading-[1.35] text-ink">
+              <h2 className="font-display text-2xl md:text-3xl text-ink leading-relaxed">
                 {v.story}
-              </p>
+              </h2>
             </Reveal>
+          </div>
 
-            <Reveal delay={0.08} className="mt-12">
-              <p className="overline">Highlights</p>
-              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+          <div className="md:col-span-5">
+            <Reveal delay={0.08}>
+              <h3 className="text-xs uppercase tracking-widest text-maroon font-semibold mb-4">Highlights</h3>
+              <ul className="space-y-3">
                 {v.highlights.map((h, i) => (
-                  <li
-                    key={i}
-                    className="flex gap-3 text-[15px] leading-relaxed text-ink border-t border-hairline pt-4"
-                  >
-                    <span className="chapter-num shrink-0 pt-0.5">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                  <li key={i} className="flex items-center gap-3 text-sm text-ink bg-bg-alt/60 px-4 py-3 rounded-xl border border-hairline/60">
+                    <span className="h-2 w-2 rounded-full bg-maroon shrink-0" />
                     <span>{h}</span>
                   </li>
                 ))}
               </ul>
             </Reveal>
           </div>
-
-          <div className="md:col-span-5">
-            <Reveal delay={0.05}>
-              <div className="border-t border-gold pt-6">
-                <p className="overline">At a glance</p>
-                <dl className="mt-6 divide-y divide-hairline border-t border-hairline">
-                  <SpecRow Icon={Users} label="Seats" value={v.seats} />
-                  <SpecRow Icon={Gauge} label="Transmission" value={v.transmission} />
-                  <SpecRow Icon={Fuel} label="Fuel" value={v.fuel} />
-                  <SpecRow Icon={Briefcase} label="Luggage" value={v.luggage} />
-                  <SpecRow Icon={Snowflake} label="AC" value={v.ac ? "Yes" : "No"} />
-                </dl>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 
-      {/* Photo strip */}
-      <section
-        data-testid="vehicle-photos"
-        className="border-t border-hairline mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24"
-      >
-        <div className="mb-10 flex items-end justify-between">
-          <p className="overline">Vehicle Gallery</p>
-          <span className="text-[10px] tracking-[0.24em] uppercase text-ink-muted">
-            Cabin · Exterior
-          </span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Reveal>
-            <div className="relative aspect-[4/3] overflow-hidden bg-bg-alt">
-              <img
-                src={v.images.cabin}
-                alt={`${v.name} — cabin`}
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
-              />
-              <span className="pointer-events-none absolute inset-2 border border-bg/70" />
-            </div>
-            <p className="mt-3 text-[10px] tracking-[0.24em] uppercase text-ink-muted">
-              Fig. 02 — the cabin
-            </p>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div className="relative aspect-[4/3] overflow-hidden bg-bg-alt">
-              <img
-                src={v.images.exterior}
-                alt={`${v.name} — exterior`}
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
-              />
-              <span className="pointer-events-none absolute inset-2 border border-bg/70" />
-            </div>
-            <p className="mt-3 text-[10px] tracking-[0.24em] uppercase text-ink-muted">
-              Fig. 03 — the exterior
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section
-        data-testid="vehicle-pricing"
-        className="border-t border-hairline mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end mb-10">
-          <div className="md:col-span-12">
-            <h2 className="font-display text-4xl md:text-5xl leading-tight text-ink tracking-tight">
-              What it costs
-            </h2>
-            <p className="mt-3 text-sm text-ink-muted max-w-md">
-              Reproduced from the {isChauffeur ? "chauffeur" : "self-drive"} rate card — the
-              same numbers you'll see quoted on WhatsApp.
-            </p>
-          </div>
-          <div className="md:col-span-4 flex md:justify-end">
-            <WhatsAppButton
-              label="Get a quote on WhatsApp"
-              message={waMsg}
-              testId={`vehicle-enquire-${v.slug}`}
-            />
-          </div>
-        </div>
-
-        {chauffeurTable && (
-          <Reveal className="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0">
-            <table className="goa-table min-w-[640px]">
+      {/* Pricing Sheet for vehicle */}
+      {isChauffeur && chauffeurTable && (
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-hairline/40">
+          <h2 className="font-display text-3xl md:text-4xl text-ink tracking-tight mb-6">
+            Chauffeur Rates & Packages
+          </h2>
+          <div className="rounded-3xl bg-bg-alt/70 p-6 md:p-8 border border-hairline/80 shadow-sm overflow-hidden">
+            <table className="goa-table min-w-[600px]">
               <thead>
                 <tr>
                   <th>Package</th>
-                  <th>Price</th>
-                  <th>Extra km</th>
-                  <th>Extra hour</th>
+                  <th>Rate</th>
+                  <th>Extra Km</th>
+                  <th>Extra Hour</th>
                 </tr>
               </thead>
               <tbody>
                 {chauffeurTable.rows.map((r, i) => (
                   <tr key={i}>
-                    <td>{r.pkg}</td>
-                    <td className="price">{r.price}</td>
+                    <td className="font-medium">{r.pkg}</td>
+                    <td className="price font-display">{r.price}</td>
                     <td>{r.extraKm}</td>
                     <td>{r.extraHr}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          </Reveal>
-        )}
-
-        {selfDriveRow && (
-          <Reveal className="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0">
-            <table className="goa-table min-w-[640px]">
-              <thead>
-                <tr>
-                  <th>Package</th>
-                  <th>Manual</th>
-                  <th>Automatic</th>
-                  <th>Delivery</th>
-                  <th>Return pickup</th>
-                  <th>Security deposit</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="font-medium">Per day (9am — 9am)</td>
-                  <td className={selfDriveRow.manual === "N/A" ? "text-ink-muted" : "price"}>
-                    {selfDriveRow.manual}
-                  </td>
-                  <td className={selfDriveRow.auto === "N/A" ? "text-ink-muted" : "price"}>
-                    {selfDriveRow.auto}
-                  </td>
-                  <td>{selfDriveRow.delivery}</td>
-                  <td>{selfDriveRow.pickup}</td>
-                  <td>{selfDriveRow.deposit}</td>
-                </tr>
-              </tbody>
-            </table>
-          </Reveal>
-        )}
-      </section>
-
-      {/* Related */}
-      {related.length > 0 && (
-        <section
-          data-testid="vehicle-related"
-          className="border-t border-hairline mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24"
-        >
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <p className="overline">Also in the fleet</p>
-              <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight text-ink tracking-tight">
-                Three others <em className="italic text-maroon font-normal">worth a look</em>
-              </h2>
-            </div>
-            <Link
-              to={isChauffeur ? "/cars-with-driver" : "/self-drive"}
-              className="hidden md:inline-flex items-center gap-2 text-sm text-maroon hover-underline"
-              data-testid="vehicle-view-all"
-            >
-              View full fleet
-              <ArrowUpRight size={14} strokeWidth={1.6} />
-            </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {related.map((r, i) => (
-              <VehicleCard key={r.slug} vehicle={r} index={i} />
+        </section>
+      )}
+
+      {isSelfDrive && selfDriveRow && (
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-hairline/40">
+          <h2 className="font-display text-3xl md:text-4xl text-ink tracking-tight mb-6">
+            Self-Drive Rental Charges
+          </h2>
+          <div className="rounded-3xl bg-bg-alt/70 p-6 md:p-8 border border-hairline/80 shadow-sm overflow-hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <p className="text-xs text-ink-muted uppercase">Manual Rate</p>
+              <p className="font-display text-2xl text-maroon mt-1">{selfDriveRow.manual}</p>
+            </div>
+            <div>
+              <p className="text-xs text-ink-muted uppercase">Automatic Rate</p>
+              <p className="font-display text-2xl text-maroon mt-1">{selfDriveRow.auto}</p>
+            </div>
+            <div>
+              <p className="text-xs text-ink-muted uppercase">Delivery / Pickup</p>
+              <p className="font-display text-lg text-ink mt-1">₹500 / ₹500</p>
+            </div>
+            <div>
+              <p className="text-xs text-ink-muted uppercase">Refundable Deposit</p>
+              <p className="font-display text-lg text-ink mt-1">{selfDriveRow.deposit}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Fleet */}
+      {related.length > 0 && (
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-hairline/40">
+          <h2 className="font-display text-3xl md:text-4xl text-ink tracking-tight mb-8">
+            Similar <em className="italic text-maroon font-normal">Vehicles.</em>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {related.map((rv, i) => (
+              <VehicleCard key={rv.slug} vehicle={rv} index={i} testId={`related-${rv.slug}`} />
             ))}
           </div>
         </section>
       )}
 
+      {/* CTA Band */}
       <CTABand
-        eyebrow={`About the ${v.name}`}
+        eyebrow="Ready to book?"
         headline={
           <>
-            Book the {v.name.split(" ")[0]}. <em className="italic text-maroon font-normal">Today, if you like.</em>
+            Book your {v.name}.
+            <br />
+            <em className="italic text-maroon font-normal">Directly on WhatsApp.</em>
           </>
         }
-        sub="One WhatsApp gets you a real quote — usually within the hour."
+        sub="Speak directly to our Porvorim team for instant booking confirmation."
         waMsg={waMsg}
-        testId={`vehicle-cta-${v.slug}`}
+        testId="vehicle-cta-band"
       />
     </main>
   );
 }
 
-function SpecRow({ Icon, label, value }) {
+function SpecItem({ Icon, label, value }) {
   return (
-    <div className="grid grid-cols-12 gap-4 items-center py-4">
-      <div className="col-span-1">
-        <Icon size={14} strokeWidth={1.6} className="text-gold" />
+    <div className="flex flex-col">
+      <div className="flex items-center gap-1.5 text-xs text-ink-muted">
+        <Icon size={14} className="text-maroon shrink-0" />
+        <span>{label}</span>
       </div>
-      <dt className="col-span-4 overline">{label}</dt>
-      <dd className="col-span-7 text-ink text-[15px]">{value}</dd>
+      <span className="font-semibold text-sm text-ink mt-1">{value}</span>
     </div>
   );
 }
