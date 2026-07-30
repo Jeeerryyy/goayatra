@@ -81,7 +81,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease, delay: 1.1 }}
-            className="mt-8 grid grid-cols-3 max-w-md text-[11px] tracking-[0.22em] uppercase text-ink-muted"
+            className="mt-8 grid grid-cols-2 max-w-xs text-[11px] tracking-[0.22em] uppercase text-ink-muted"
           >
             <div className="pt-3">
               <div className="text-ink font-display text-2xl leading-none">24/7</div>
@@ -90,10 +90,6 @@ export default function Hero() {
             <div className="pt-3 pl-4">
               <div className="text-ink font-display text-2xl leading-none">13+</div>
               <div className="mt-2">Vehicles</div>
-            </div>
-            <div className="pt-3 pl-4">
-              <div className="text-ink font-display text-2xl leading-none">26</div>
-              <div className="mt-2">Seat max</div>
             </div>
           </motion.div>
         </div>
