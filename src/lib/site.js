@@ -24,8 +24,6 @@ export const telLink = `tel:+917249216623`;
 
 export const NAV = [
   { to: "/", label: "Home", short: "Home" },
-  { to: "/cars-with-driver", label: "Cars with Driver", short: "Chauffeur" },
-  { to: "/self-drive", label: "Self-Drive", short: "Self-Drive" },
-  { to: "/group-travel", label: "Group Travel", short: "Group" },
-  { to: "/about", label: "About & Contact", short: "About" },
+  { to: "/fleet", label: "Fleet & Rentals", short: "Fleet" },
+  { to: "/about", label: "About & FAQ", short: "About" },
 ];

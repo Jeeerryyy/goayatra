@@ -5,9 +5,7 @@ import Footer from "@/components/site/Footer";
 import MobileStickyBar from "@/components/site/MobileStickyBar";
 
 import Home from "@/pages/Home";
-import CarsWithDriver from "@/pages/CarsWithDriver";
-import SelfDrive from "@/pages/SelfDrive";
-import GroupTravel from "@/pages/GroupTravel";
+import Fleet from "@/pages/Fleet";
 import AboutContact from "@/pages/AboutContact";
 import Vehicle from "@/pages/Vehicle";
 
@@ -22,9 +20,10 @@ function Site() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cars-with-driver" element={<CarsWithDriver />} />
-        <Route path="/self-drive" element={<SelfDrive />} />
-        <Route path="/group-travel" element={<GroupTravel />} />
+        <Route path="/fleet" element={<Fleet />} />
+        <Route path="/cars-with-driver" element={<Fleet />} />
+        <Route path="/self-drive" element={<Fleet />} />
+        <Route path="/group-travel" element={<Fleet />} />
         <Route path="/about" element={<AboutContact />} />
         <Route path="/vehicle/:slug" element={<Vehicle />} />
         <Route path="*" element={<Home />} />

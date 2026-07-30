@@ -52,7 +52,7 @@ export default function Home() {
             </p>
           </div>
           <Link
-            to="/self-drive"
+            to="/fleet"
             className="inline-flex items-center gap-2 text-sm font-semibold text-maroon hover:underline"
           >
             <span>View Full Fleet (18+ Vehicles)</span>
@@ -79,7 +79,7 @@ export default function Home() {
             </p>
           </div>
           <Link
-            to="/cars-with-driver"
+            to="/fleet"
             className="inline-flex items-center gap-2 text-sm font-semibold text-maroon hover:underline"
           >
             <span>View All Rate Sheets</span>
