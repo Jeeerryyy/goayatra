@@ -45,26 +45,26 @@ export default function Vehicle() {
   const waMsg = `Hi Goa Yatra, I'd like to enquire about the ${v.name}.`;
 
   return (
-    <main data-testid={`vehicle-page-${v.slug}`} className="pt-32 md:pt-40">
+    <main data-testid={`vehicle-page-${v.slug}`} className="pt-24 md:pt-28">
       {/* Breadcrumb */}
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-10">
-        <div className="flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase text-ink-muted">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-4">
+        <div className="flex items-center gap-3 text-xs tracking-wider uppercase text-ink-muted">
           <Link
-            to={isChauffeur ? "/cars-with-driver" : "/self-drive"}
+            to="/fleet"
             className="inline-flex items-center gap-2 hover:text-maroon transition-colors"
             data-testid="vehicle-back-link"
           >
-            <ArrowLeft size={12} strokeWidth={1.6} />
-            <span>{isChauffeur ? "Cars with Driver" : "Self-Drive"}</span>
+            <ArrowLeft size={14} strokeWidth={1.8} />
+            <span>Back to Fleet</span>
           </Link>
           <span className="text-gold">/</span>
-          <span className="text-ink">{v.name}</span>
+          <span className="text-ink font-medium">{v.name}</span>
         </div>
       </div>
 
       {/* Hero */}
-      <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+      <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-12 md:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-7">
             <p className="overline">{v.category}</p>
             <h1 className="mt-4 font-display leading-[1.02] tracking-tight text-ink text-6xl md:text-7xl lg:text-[6.4vw]">
