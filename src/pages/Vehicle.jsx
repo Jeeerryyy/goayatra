@@ -45,9 +45,9 @@ export default function Vehicle() {
   const waMsg = `Hi Goa Yatra, I'd like to enquire about the ${v.name}.`;
 
   return (
-    <main data-testid={`vehicle-page-${v.slug}`} className="pt-24 md:pt-28">
+    <main data-testid={`vehicle-page-${v.slug}`} className="pt-20 md:pt-24">
       {/* Breadcrumb */}
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-4">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-2">
         <div className="flex items-center gap-3 text-xs tracking-wider uppercase text-ink-muted">
           <Link
             to="/fleet"
@@ -64,7 +64,7 @@ export default function Vehicle() {
 
       {/* Hero */}
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-12 md:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-7">
             <p className="overline">{v.category}</p>
             <h1 className="mt-4 font-display leading-[1.02] tracking-tight text-ink text-6xl md:text-7xl lg:text-[6.4vw]">
