@@ -35,37 +35,7 @@
   }
 
   html {
-    background-color: #faf7f2;
-    color: #1b1b1b;
-  }
-
-  body {
-    margin: 0;
-    background-color: #faf7f2;
-    color: #1b1b1b;
-    font-family: "Inter", sans-serif;
-    font-feature-settings: "ss01", "cv11";
-    text-rendering: optimizeLegibility;
-  }
-
-  ::selection {
-    background: #5c1a1a;
-    color: #faf7f2;
-  }
-
-  /* Lenis smooth scroll */
-  html.lenis,
-  html.lenis body {
-    height: auto;
-  }
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-  .lenis.lenis-stopped {
-    overflow: hidden;
+    scroll-behavior: smooth;
   }
 
   /* Focus */

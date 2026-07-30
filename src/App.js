@@ -1,10 +1,8 @@
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useLenis } from "@/lib/lenis";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import MobileStickyBar from "@/components/site/MobileStickyBar";
-import ScrollToTop from "@/components/site/ScrollToTop";
 
 import Home from "@/pages/Home";
 import CarsWithDriver from "@/pages/CarsWithDriver";
@@ -14,10 +12,13 @@ import AboutContact from "@/pages/AboutContact";
 import Vehicle from "@/pages/Vehicle";
 
 function Site() {
-  useLenis();
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+
   return (
-    <div className="App min-h-screen bg-bg text-ink">
-      <ScrollToTop />
+    <div className="min-h-screen bg-bg text-ink">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,7 +31,6 @@ function Site() {
       </Routes>
       <Footer />
       <MobileStickyBar />
-      {/* Bottom padding to clear mobile sticky bar */}
       <div className="h-16 lg:hidden" aria-hidden />
     </div>
   );
