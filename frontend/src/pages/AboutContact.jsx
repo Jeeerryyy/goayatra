@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import Reveal from "@/components/site/Reveal";
 import CTABand from "@/components/site/CTABand";
+import ReviewsWall from "@/components/site/ReviewsWall";
 import { CallButton, WhatsAppButton } from "@/components/site/CTAButtons";
 import { faqs } from "@/data/pricing";
 import { BRAND, telLink } from "@/lib/site";
@@ -164,6 +165,9 @@ export default function AboutContact() {
           </Reveal>
         </div>
       </section>
+
+      {/* Reviews wall — inserted before FAQ so trust signal lands before pricing questions */}
+      <ReviewsWall />
 
       {/* FAQ */}
       <section

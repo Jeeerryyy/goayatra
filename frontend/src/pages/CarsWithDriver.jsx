@@ -1,7 +1,9 @@
 import Reveal from "@/components/site/Reveal";
 import PricingTable from "@/components/site/PricingTable";
+import VehicleCard from "@/components/site/VehicleCard";
 import CTABand from "@/components/site/CTABand";
 import { chauffeurTables, driverNight } from "@/data/pricing";
+import { chauffeurVehicles } from "@/data/vehicles";
 
 export default function CarsWithDriver() {
   return (
@@ -35,6 +37,31 @@ export default function CarsWithDriver() {
       </section>
 
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 space-y-16 md:space-y-24">
+        {/* Fleet grid — 5 chauffeur categories, each links to its own detail page */}
+        <section
+          data-testid="chauffeur-fleet-grid"
+          className="border-t border-hairline pt-10 md:pt-16"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-10">
+            <div className="md:col-span-1">
+              <span className="chapter-num">00</span>
+            </div>
+            <div className="md:col-span-11">
+              <h2 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
+                The <em className="italic text-maroon font-normal">line-up.</em>
+              </h2>
+              <p className="mt-3 text-sm text-ink-muted max-w-md">
+                Five packages — tap any card for cabin photos, specs and the full price sheet.
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {chauffeurVehicles.map((v, i) => (
+              <VehicleCard key={v.slug} vehicle={v} index={i} testId={`chauffeur-tile-${v.slug}`} />
+            ))}
+          </div>
+        </section>
+
         {chauffeurTables.map((t, i) => (
           <PricingTable
             key={t.id}

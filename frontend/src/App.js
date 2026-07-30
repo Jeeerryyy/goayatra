@@ -11,6 +11,7 @@ import CarsWithDriver from "@/pages/CarsWithDriver";
 import SelfDrive from "@/pages/SelfDrive";
 import GroupTravel from "@/pages/GroupTravel";
 import AboutContact from "@/pages/AboutContact";
+import Vehicle from "@/pages/Vehicle";
 
 function Site() {
   useLenis();
@@ -24,6 +25,7 @@ function Site() {
         <Route path="/self-drive" element={<SelfDrive />} />
         <Route path="/group-travel" element={<GroupTravel />} />
         <Route path="/about" element={<AboutContact />} />
+        <Route path="/vehicle/:slug" element={<Vehicle />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />

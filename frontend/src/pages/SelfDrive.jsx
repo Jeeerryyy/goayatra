@@ -1,8 +1,12 @@
 import Reveal from "@/components/site/Reveal";
 import CTABand from "@/components/site/CTABand";
+import VehicleCard from "@/components/site/VehicleCard";
 import { WhatsAppButton } from "@/components/site/CTAButtons";
 import { selfDriveRows, selfDriveNotes } from "@/data/pricing";
+import { selfDriveVehicles } from "@/data/vehicles";
 import { BRAND } from "@/lib/site";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 export default function SelfDrive() {
   return (
@@ -31,6 +35,31 @@ export default function SelfDrive() {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Fleet grid — 13 self-drive vehicles */}
+      <section
+        data-testid="self-drive-fleet-grid"
+        className="mx-auto max-w-[1440px] px-6 md:px-10 pb-16 md:pb-24"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-10 border-t border-hairline pt-10 md:pt-16">
+          <div className="md:col-span-1">
+            <span className="chapter-num">00</span>
+          </div>
+          <div className="md:col-span-11">
+            <h2 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
+              Thirteen cars <em className="italic text-maroon font-normal">on the yard.</em>
+            </h2>
+            <p className="mt-3 text-sm text-ink-muted max-w-md">
+              Tap any car for cabin & exterior photos, specs, and a WhatsApp-ready enquiry.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {selfDriveVehicles.map((v, i) => (
+            <VehicleCard key={v.slug} vehicle={v} index={i} testId={`self-drive-tile-${v.slug}`} />
+          ))}
         </div>
       </section>
 
