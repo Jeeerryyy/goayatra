@@ -44,7 +44,7 @@ export default function ReviewsWall() {
   return (
     <section
       data-testid="reviews-wall"
-      className="py-20 md:py-28 mx-auto max-w-[1440px] px-6 md:px-10 border-t border-hairline/60"
+      className="py-20 md:py-28 mx-auto max-w-[1440px] px-6 md:px-10"
     >
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">

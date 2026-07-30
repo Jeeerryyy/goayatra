@@ -6,7 +6,7 @@ import LogoIcon from "./LogoIcon";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer data-testid="site-footer" className="mt-24 border-t border-hairline">
+    <footer data-testid="site-footer" className="mt-20 py-12">
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-10">
         {/* Brand block */}
         <div className="md:col-span-4">

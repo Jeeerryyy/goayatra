@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section
       data-testid="hero"
-      className="relative pt-24 md:pt-28 pb-10 md:pb-14 border-b border-hairline"
+      className="relative pt-24 md:pt-28 pb-10 md:pb-14"
     >
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
         {/* Copy column */}
@@ -83,15 +83,15 @@ export default function Hero() {
             transition={{ duration: 1.2, ease, delay: 1.1 }}
             className="mt-8 grid grid-cols-3 max-w-md text-[11px] tracking-[0.22em] uppercase text-ink-muted"
           >
-            <div className="border-t border-gold pt-3">
+            <div className="pt-3">
               <div className="text-ink font-display text-2xl leading-none">24/7</div>
               <div className="mt-2">Dispatch</div>
             </div>
-            <div className="border-t border-hairline pt-3 pl-4">
+            <div className="pt-3 pl-4">
               <div className="text-ink font-display text-2xl leading-none">13+</div>
               <div className="mt-2">Vehicles</div>
             </div>
-            <div className="border-t border-hairline pt-3 pl-4">
+            <div className="pt-3 pl-4">
               <div className="text-ink font-display text-2xl leading-none">26</div>
               <div className="mt-2">Seat max</div>
             </div>

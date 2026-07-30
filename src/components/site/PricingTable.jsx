@@ -14,7 +14,7 @@ export default function PricingTable({
   return (
     <section
       data-testid={testId || `pricing-${name?.toLowerCase().replace(/\s+/g, "-")}`}
-      className="border-t border-hairline pt-10 md:pt-16"
+      className="pt-6 md:pt-10"
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-8">
         <div className="md:col-span-8">

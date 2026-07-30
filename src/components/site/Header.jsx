@@ -27,8 +27,8 @@ export default function Header() {
       data-testid="site-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "py-3 bg-bg/95 backdrop-blur-md shadow-sm border-b border-hairline"
-          : "py-5 bg-bg/80 backdrop-blur-sm border-b border-hairline/60"
+          ? "py-3 bg-bg/95 backdrop-blur-md shadow-sm"
+          : "py-5 bg-bg/80 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 md:px-10">

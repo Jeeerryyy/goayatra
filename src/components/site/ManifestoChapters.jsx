@@ -5,7 +5,7 @@ export default function ManifestoChapters() {
   return (
     <section
       data-testid="manifesto"
-      className="border-t border-hairline py-24 md:py-32"
+      className="py-16 md:py-24"
     >
       <div className="mx-auto max-w-[1440px] px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-16">

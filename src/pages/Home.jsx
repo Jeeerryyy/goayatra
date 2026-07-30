@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
       {/* 3. Charges & Rental Rates */}
-      <section className="py-16 md:py-24 mx-auto max-w-[1440px] px-6 md:px-10 border-t border-hairline/60">
+      <section className="py-16 md:py-24 mx-auto max-w-[1440px] px-6 md:px-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <h2 className="font-display text-4xl md:text-5xl text-ink tracking-tight">

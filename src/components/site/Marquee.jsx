@@ -13,7 +13,7 @@ export default function Marquee({ items = [], separator = "·", testId = "marque
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="relative overflow-hidden border-y border-hairline bg-bg-alt py-7"
+      className="relative overflow-hidden bg-bg-alt/70 py-6"
     >
       <div className="marquee-track whitespace-nowrap">
         {list.map((it, i) => (
