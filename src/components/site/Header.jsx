@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import { NAV } from "@/lib/site";
 import { CallButton, WhatsAppButton } from "./CTAButtons";
+import LogoIcon from "./LogoIcon";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,13 +33,16 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 md:px-10">
         {/* Brand Mark */}
-        <Link to="/" className="group flex flex-col leading-none" data-testid="brand-mark">
-          <span className="font-display text-2xl md:text-[28px] text-maroon tracking-tight transition-opacity duration-200 group-hover:opacity-90">
-            Goa Yatra
-          </span>
-          <span className="mt-1 text-[9px] md:text-[10px] tracking-[0.3em] text-ink-muted font-medium uppercase">
-            TTG Travels
-          </span>
+        <Link to="/" className="group flex items-center gap-3" data-testid="brand-mark">
+          <LogoIcon className="h-9 w-9 transition-transform duration-300 group-hover:scale-105" />
+          <div className="flex flex-col leading-none">
+            <span className="font-display text-2xl md:text-[26px] text-maroon tracking-tight transition-opacity duration-200 group-hover:opacity-90">
+              Goa Yatra
+            </span>
+            <span className="mt-1 text-[9px] md:text-[10px] tracking-[0.3em] text-ink-muted font-medium uppercase">
+              TTG Travels
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

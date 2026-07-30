@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Instagram, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { BRAND, NAV, telLink } from "@/lib/site";
+import LogoIcon from "./LogoIcon";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,11 +10,14 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-10">
         {/* Brand block */}
         <div className="md:col-span-4">
-          <div className="flex flex-col leading-none">
-            <span className="font-display text-3xl text-maroon">Goa Yatra</span>
-            <span className="mt-1 text-[10px] tracking-[0.28em] text-ink font-medium uppercase">
-              TTG Travels
-            </span>
+          <div className="flex items-center gap-3">
+            <LogoIcon className="h-10 w-10" />
+            <div className="flex flex-col leading-none">
+              <span className="font-display text-3xl text-maroon">Goa Yatra</span>
+              <span className="mt-1 text-[10px] tracking-[0.28em] text-ink font-medium uppercase">
+                TTG Travels
+              </span>
+            </div>
           </div>
           <p className="mt-6 max-w-xs text-sm text-ink-muted leading-relaxed">
             Chauffeur and self-drive rentals across Goa — one number, every road.
