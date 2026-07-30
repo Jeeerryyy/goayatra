@@ -10,7 +10,7 @@ export default function ManifestoChapters() {
       <div className="mx-auto max-w-[1440px] px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-16">
           <div className="md:col-span-4">
-            <p className="overline">Manifesto · Four chapters</p>
+            <p className="overline">Why Choose Us</p>
           </div>
           <div className="md:col-span-8">
             <Reveal as="h2" className="font-display text-5xl md:text-6xl leading-[1.05] tracking-tight text-ink">

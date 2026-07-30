@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import { NAV } from "@/lib/site";
 import { CallButton, WhatsAppButton } from "./CTAButtons";
 
@@ -11,7 +11,7 @@ export default function Header() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -24,22 +24,25 @@ export default function Header() {
   return (
     <header
       data-testid="site-header"
-      className={`fixed top-0 left-0 right-0 z-50 border-b border-hairline bg-bg transition-[padding] duration-300 ${
-        scrolled ? "py-3" : "py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "py-3 bg-bg/95 backdrop-blur-md shadow-sm border-b border-hairline"
+          : "py-5 bg-bg/80 backdrop-blur-sm border-b border-hairline/60"
       }`}
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 md:px-10">
+        {/* Brand Mark */}
         <Link to="/" className="group flex flex-col leading-none" data-testid="brand-mark">
-          <span className="font-display text-[22px] md:text-[26px] text-maroon tracking-tight">
+          <span className="font-display text-2xl md:text-[28px] text-maroon tracking-tight transition-opacity duration-200 group-hover:opacity-90">
             Goa Yatra
           </span>
-          <span className="mt-0.5 text-[9px] md:text-[10px] tracking-[0.28em] text-ink font-medium uppercase">
+          <span className="mt-1 text-[9px] md:text-[10px] tracking-[0.3em] text-ink-muted font-medium uppercase">
             TTG Travels
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-9">
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-10">
           {NAV.map((n) => (
             <NavLink
               key={n.to}
@@ -47,52 +50,58 @@ export default function Header() {
               end={n.to === "/"}
               data-testid={`nav-${n.short.toLowerCase()}`}
               className={({ isActive }) =>
-                `hover-underline text-[13px] font-medium tracking-wide ${
-                  isActive ? "text-maroon" : "text-ink"
+                `relative py-1 text-sm font-medium transition-colors duration-200 tracking-wide ${
+                  isActive ? "text-maroon font-semibold" : "text-ink hover:text-maroon"
                 }`
               }
             >
               {({ isActive }) => (
-                <span data-active={isActive ? "true" : "false"}>{n.label}</span>
+                <>
+                  <span>{n.label}</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeNavIndicator"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-maroon rounded-full"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </>
               )}
             </NavLink>
           ))}
         </nav>
 
+        {/* Action CTAs */}
         <div className="hidden lg:flex items-center gap-3">
           <CallButton label="Call" size="md" testId="header-call" />
           <WhatsAppButton label="WhatsApp" size="md" testId="header-whatsapp" />
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile menu button */}
         <button
           type="button"
-          aria-label="Open menu"
+          aria-label="Toggle navigation menu"
           onClick={() => setOpen((v) => !v)}
           data-testid="mobile-menu-toggle"
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center border border-ink"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-hairline bg-bg hover:bg-gold/10 transition-colors"
         >
-          {open ? <X size={18} /> : <Menu size={18} />}
+          {open ? <X size={20} className="text-ink" /> : <Menu size={20} className="text-ink" />}
         </button>
       </div>
 
-      {/* Hairline gold rule under nav — signature device */}
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10">
-        <div className="mt-4 h-px w-full bg-gold/60" />
-      </div>
-
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {open && (
           <motion.div
             key="mobile-menu"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden bg-bg border-t border-hairline"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="lg:hidden bg-bg border-t border-hairline overflow-hidden shadow-lg"
             data-testid="mobile-nav-panel"
           >
-            <div className="mx-auto max-w-[1440px] px-6 py-6 flex flex-col gap-5">
+            <div className="mx-auto max-w-[1440px] px-6 py-6 flex flex-col gap-4">
               {NAV.map((n) => (
                 <NavLink
                   key={n.to}
@@ -100,17 +109,17 @@ export default function Header() {
                   end={n.to === "/"}
                   data-testid={`mobile-nav-${n.short.toLowerCase()}`}
                   className={({ isActive }) =>
-                    `font-display text-3xl leading-tight ${
-                      isActive ? "text-maroon" : "text-ink"
+                    `font-display text-2xl leading-tight transition-colors ${
+                      isActive ? "text-maroon font-medium pl-2 border-l-2 border-maroon" : "text-ink hover:text-maroon"
                     }`
                   }
                 >
                   {n.label}
                 </NavLink>
               ))}
-              <div className="mt-4 flex gap-3">
-                <CallButton label="Call now" testId="mobile-header-call" />
-                <WhatsAppButton label="WhatsApp" testId="mobile-header-whatsapp" />
+              <div className="mt-4 pt-4 border-t border-hairline flex gap-3">
+                <CallButton label="Call now" testId="mobile-header-call" className="w-full justify-center" />
+                <WhatsAppButton label="WhatsApp" testId="mobile-header-whatsapp" className="w-full justify-center" />
               </div>
             </div>
           </motion.div>

@@ -20,7 +20,7 @@ export default function AboutContact() {
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-16 md:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
           <div className="md:col-span-8">
-            <p className="overline">Page 05 · About & Contact</p>
+            <p className="overline">About & Contact</p>
             <Reveal
               as="h1"
               className="mt-4 font-display leading-[1.02] tracking-tight text-ink text-6xl md:text-7xl lg:text-[7vw]"

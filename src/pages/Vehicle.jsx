@@ -199,7 +199,7 @@ export default function Vehicle() {
         className="border-t border-hairline mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24"
       >
         <div className="mb-10 flex items-end justify-between">
-          <p className="overline">Photography · Fig. 02 & 03</p>
+          <p className="overline">Vehicle Gallery</p>
           <span className="text-[10px] tracking-[0.24em] uppercase text-ink-muted">
             Cabin · Exterior
           </span>

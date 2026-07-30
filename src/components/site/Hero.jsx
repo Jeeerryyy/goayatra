@@ -28,7 +28,7 @@ export default function Hero() {
             className="flex items-center gap-4"
           >
             <span className="h-px w-10 bg-gold" />
-            <span className="overline">Est. Porvorim · Bardez · Goa</span>
+            <span className="overline">TTG Travels · Goa</span>
           </motion.div>
 
           <h1 className="mt-8 font-display text-ink tracking-tight leading-[1.02] text-[13vw] sm:text-[10vw] lg:text-[7.4vw]">
