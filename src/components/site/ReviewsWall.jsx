@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote, CheckCircle2, Pause, Play } from "lucide-react";
 import Reveal from "./Reveal";
@@ -34,13 +34,13 @@ export default function ReviewsWall() {
   const marqueeReviewsRow1 = [...displayReviews, ...displayReviews, ...displayReviews];
   const marqueeReviewsRow2 = [...displayReviews.slice().reverse(), ...displayReviews.slice().reverse(), ...displayReviews.slice().reverse()];
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev >= displayReviews.length - 1 ? 0 : prev + 1));
-  };
+  }, [displayReviews.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? Math.max(0, displayReviews.length - 1) : prev - 1));
-  };
+  }, [displayReviews.length]);
 
   useEffect(() => {
     if (isPaused || displayReviews.length === 0) return;
@@ -48,7 +48,7 @@ export default function ReviewsWall() {
       nextSlide();
     }, 5000);
     return () => clearInterval(timer);
-  }, [currentIndex, isPaused, displayReviews.length]);
+  }, [isPaused, displayReviews.length, nextSlide]);
 
   const currentReview = displayReviews[currentIndex] || displayReviews[0] || {
     id: 1,
