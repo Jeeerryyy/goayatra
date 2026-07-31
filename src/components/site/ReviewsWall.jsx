@@ -94,9 +94,9 @@ export default function ReviewsWall() {
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#FFF8F2] to-transparent z-10" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FFF8F2] to-transparent z-10" />
 
-        <div className="animate-marquee-loop gap-6 flex items-center">
+        <div className="animate-marquee-loop gap-4 sm:gap-6 flex items-center">
           {marqueeReviewsRow1.map((item, idx) => (
-            <ThreeDTiltCard key={`${item.id}-${idx}`} maxTilt={6} scale={1.02} className="shrink-0 w-[320px] sm:w-[380px] rounded-[24px]">
+            <ThreeDTiltCard key={`${item.id}-${idx}`} maxTilt={6} scale={1.02} className="shrink-0 w-[290px] sm:w-[380px] rounded-[24px]">
               <div className="bg-white p-6 rounded-[24px] border border-[#F0DED2] shadow-card hover:shadow-cardHover transition-all duration-300 flex flex-col justify-between h-[230px]">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">

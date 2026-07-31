@@ -176,13 +176,13 @@ export default function GroupTravel() {
                     </table>
                   </div>
 
-                  <div className="mt-4 p-4 rounded-2xl bg-[#FFF8F2] border border-[#F0DED2] flex items-center justify-between text-xs text-[#6D4F47]">
+                  <div className="mt-4 p-4 rounded-2xl bg-[#FFF8F2] border border-[#F0DED2] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#6D4F47]">
                     <span>Valid from 3rd Jan to 28th Dec · Full fuel &amp; driver included</span>
                     <WhatsAppButton
                       label="Select &amp; Book"
                       size="sm"
                       message={`Hi Goa Yatra! I'd like to book the ${v.name} group package.`}
-                      className="btn-primary text-xs py-1.5 px-3 rounded-lg"
+                      className="btn-primary text-xs py-2 px-4 rounded-lg w-full sm:w-auto justify-center"
                     />
                   </div>
                 </div>

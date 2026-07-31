@@ -14,6 +14,9 @@ export default function ThreeDTiltCard({
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
+    if (window.innerWidth < 768 || ("ontouchstart" in window && navigator.maxTouchPoints > 0)) {
+      return; // Skip 3D tilt calculations on mobile touch screens for smooth scrolling
+    }
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
