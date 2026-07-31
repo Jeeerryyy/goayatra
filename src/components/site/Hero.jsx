@@ -3,22 +3,35 @@ import { CallButton, WhatsAppButton } from "./CTAButtons";
 import { ease } from "@/lib/motion";
 import { BRAND } from "@/lib/site";
 import { Sparkles, MapPin, Sun, ShieldCheck, Waves, Compass } from "lucide-react";
+import ThreeDBackground from "./ThreeDBackground";
+import ThreeDTiltCard from "./ThreeDTiltCard";
+import OceanWave3DAnimation from "./OceanWave3DAnimation";
+import Floating3DElements from "./Floating3DElements";
 
 export default function Hero() {
   return (
     <section
       data-testid="hero"
-      className="relative pt-24 md:pt-32 pb-12 md:pb-16 overflow-hidden min-h-[55vh] flex items-center justify-center text-center bg-[#FFF3EB] border-b border-[#F0DED2]"
+      className="relative pt-24 md:pt-32 pb-12 md:pb-16 overflow-hidden min-h-[60vh] flex items-center justify-center text-center bg-[#FFF3EB] border-b border-[#F0DED2]"
     >
+      {/* 3D Moving Ocean Waves Animation Layer */}
+      <OceanWave3DAnimation className="opacity-95" />
+
+      {/* Floating 3D Interactive Ambient Elements */}
+      <Floating3DElements />
+
+      {/* 3D Interactive Node/Particle Canvas */}
+      <ThreeDBackground className="opacity-80 z-0" />
+
       {/* Crisp Sunset Beach Background Image Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
           src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80"
           alt="Goa Sunset Beach Background"
-          className="w-full h-full object-cover opacity-85 filter contrast-[1.05]"
+          className="w-full h-full object-cover opacity-65 filter contrast-[1.08]"
         />
         {/* Crisp subtle overlay for perfect text legibility without obscuring the image */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8F2]/60 via-[#FFF3EB]/45 to-[#FFF8F2]/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8F2]/50 via-[#FFF3EB]/35 to-[#FFF8F2]/75" />
       </div>
 
       {/* Direct Content Overlay */}
@@ -71,20 +84,24 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease, delay: 0.45 }}
-          className="mt-8 grid grid-cols-1 sm:grid-cols-3 w-full max-w-2xl text-[#493129] font-body gap-4 bg-white/90 backdrop-blur-md p-5 rounded-[20px] shadow-soft border border-[#F0DED2]"
+          className="mt-8 w-full max-w-2xl"
         >
-          <div className="flex flex-col items-center">
-            <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#493129]">24 / 7</span>
-            <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Airport Transfers</span>
-          </div>
-          <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#F0DED2] pt-3 sm:pt-0">
-            <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#8B597B]">100%</span>
-            <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Verified Fleet</span>
-          </div>
-          <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#F0DED2] pt-3 sm:pt-0">
-            <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#493129]">0</span>
-            <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Hidden Fees</span>
-          </div>
+          <ThreeDTiltCard maxTilt={6} scale={1.03} className="rounded-[20px]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 w-full text-[#493129] font-body gap-4 bg-white/90 backdrop-blur-md p-5 rounded-[20px] shadow-large border border-[#F0DED2]">
+              <div className="flex flex-col items-center">
+                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#493129]">24 / 7</span>
+                <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Airport Transfers</span>
+              </div>
+              <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#F0DED2] pt-3 sm:pt-0">
+                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#8B597B]">100%</span>
+                <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Verified Fleet</span>
+              </div>
+              <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#F0DED2] pt-3 sm:pt-0">
+                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#493129]">0</span>
+                <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Hidden Fees</span>
+              </div>
+            </div>
+          </ThreeDTiltCard>
         </motion.div>
       </div>
     </section>

@@ -241,4 +241,46 @@
   }
 }
 
+/* Continuous Infinite Marquee Animations */
+@keyframes marquee-infinite {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-infinite-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-loop {
+  display: flex;
+  width: max-content;
+  animation: marquee-infinite 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-loop:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-loop-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-infinite-reverse 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-loop-reverse:hover {
+  animation-play-state: paused;
+}
+
+
 

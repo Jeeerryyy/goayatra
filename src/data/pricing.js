@@ -55,8 +55,8 @@ export const chauffeurTables = [
 ];
 
 export const driverNight = [
-  { slot: "08:00 pm – 12:00 am", charge: "₹500" },
-  { slot: "08:00 pm – 06:00 am", charge: "₹1,000" },
+  { slot: "08 pm to 12 am", charge: "Rs.500/-" },
+  { slot: "08 pm to 06 am", charge: "Rs.1000/-" },
 ];
 
 export const selfDriveRows = [
@@ -93,24 +93,41 @@ export const groupTables = [
   {
     id: "tempo",
     name: "Tempo Traveller",
-    tagline: "12–17 seats. Weddings, tours, corporate runs.",
+    tagline: "12–17 seats · Cars with drivers",
+    image: "/images/cars/tempo.png",
+    seats: "12 – 17 Seats",
+    extraKm: "₹40 / km",
+    extraHr: "₹400 / hr",
     rows: [
-      { pkg: "8 hours / 80 km", price: "₹6,000", extraKm: "₹40 / km", extraHr: "₹400 / hr" },
-      { pkg: "12 hours / 120 km", price: "₹9,000", extraKm: "₹40 / km", extraHr: "₹400 / hr" },
-      { pkg: "24 hours / 120 km", price: "₹14,000", extraKm: "₹40 / km", extraHr: "₹400 / hr" },
+      { pkg: "8 hours 80 km", price: "₹6,000", extraKm: "₹40", extraHr: "₹400" },
+      { pkg: "12 hours 120 km", price: "₹9,000", extraKm: "₹40", extraHr: "₹400" },
+      { pkg: "24 hours 120 km", price: "₹14,000", extraKm: "₹40", extraHr: "₹400" },
     ],
   },
   {
     id: "urbania",
     name: "Urbania",
-    tagline: "Up to 26 seats. Premium group transport.",
+    tagline: "Up to 26 seats · Cars with drivers",
+    image: "/images/cars/urbania.png",
+    seats: "Up to 26 Seats",
+    extraKm: "₹50 / km",
+    extraHr: "₹500 / hr",
     rows: [
-      { pkg: "8 hours / 80 km", price: "₹10,000", extraKm: "₹50 / km", extraHr: "₹500 / hr" },
-      { pkg: "12 hours / 120 km", price: "₹14,000", extraKm: "₹50 / km", extraHr: "₹500 / hr" },
-      { pkg: "24 hours / 120 km", price: "₹20,000", extraKm: "₹50 / km", extraHr: "₹500 / hr" },
+      { pkg: "8 hours 80 km", price: "₹10,000", extraKm: "₹50", extraHr: "₹500" },
+      { pkg: "12 hours 120 km", price: "₹14,000", extraKm: "₹50", extraHr: "₹500" },
+      { pkg: "24 hours 120 km", price: "₹20,000", extraKm: "₹50", extraHr: "₹500" },
     ],
   },
 ];
+
+export const groupTravelMetadata = {
+  validity: "Price from 3rd Jan to 28th Dec",
+  heading: "Cars with drivers",
+  phone: "7249216623",
+  formattedPhone: "+91 7249216623",
+  email: "infotriptogoa@gmail.com",
+};
+
 
 export const faqs = [
   {

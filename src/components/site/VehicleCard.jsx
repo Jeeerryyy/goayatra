@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Users, Fuel } from "lucide-react";
 import Reveal from "./Reveal";
+import ThreeDTiltCard from "./ThreeDTiltCard";
 
 /**
- * Playful & friendly vehicle card matching Brand Guidelines v1.0
+ * Playful & friendly vehicle card matching Brand Guidelines v1.0 with 3D Tilt
  */
 export default function VehicleCard({ vehicle, index = 0, testId }) {
   const isSelfDrive = vehicle.fleet?.includes("self-drive");
 
   return (
     <Reveal delay={index * 0.05}>
-      <Link
-        to={`/vehicle/${vehicle.slug}`}
-        data-testid={testId || `vehicle-card-${vehicle.slug}`}
-        className="group block relative brand-card bg-white p-6 rounded-[24px] shadow-card hover:shadow-cardHover border border-[#F0DED2] transition-all duration-300 transform hover:-translate-y-1"
-      >
+      <ThreeDTiltCard maxTilt={8} scale={1.02} className="rounded-[24px]">
+        <Link
+          to={`/vehicle/${vehicle.slug}`}
+          data-testid={testId || `vehicle-card-${vehicle.slug}`}
+          className="group block relative brand-card bg-white p-6 rounded-[24px] shadow-card hover:shadow-cardHover border border-[#F0DED2] transition-all duration-300"
+        >
         {/* Badge */}
         {vehicle.serviceTypes?.[0] && (
           <span className="absolute top-9 right-9 z-10 inline-flex items-center px-3 py-1 rounded-badge text-xs font-semibold bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] shadow-soft">
@@ -112,6 +114,7 @@ export default function VehicleCard({ vehicle, index = 0, testId }) {
           </div>
         )}
       </Link>
+      </ThreeDTiltCard>
     </Reveal>
   );
 }
