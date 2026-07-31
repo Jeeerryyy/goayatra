@@ -1,12 +1,52 @@
 import Reveal from "@/components/site/Reveal";
 import CTABand from "@/components/site/CTABand";
 import { WhatsAppButton, CallButton } from "@/components/site/CTAButtons";
-import { groupTables, driverNight, groupTravelMetadata } from "@/data/pricing";
+import { groupTravelMetadata } from "@/data/pricing";
+import { useAdmin } from "@/context/AdminContext";
 import { Clock, Navigation, Moon, Phone, Mail, CheckCircle2, Users, ShieldCheck } from "lucide-react";
 import ThreeDBackground from "@/components/site/ThreeDBackground";
 import ThreeDTiltCard from "@/components/site/ThreeDTiltCard";
 
 export default function GroupTravel() {
+  const { pricing } = useAdmin();
+
+  const tempoData = pricing.tempoTraveller || {
+    name: "Tempo Traveller",
+    seats: "12 – 17 Seats",
+    tagline: "Spacious AC group cruiser ideal for large families & friend groups",
+    image: "/images/cars/tempo-traveller.jpg",
+    extraKm: "₹40/km",
+    extraHr: "₹400/hr",
+    rows: [
+      { pkg: "8 hours 80 km", price: "₹6,000", extraKm: "40", extraHr: "400" },
+      { pkg: "12 hours 120 km", price: "₹9,000", extraKm: "40", extraHr: "400" },
+      { pkg: "24 hours 120 km", price: "₹14,000", extraKm: "40", extraHr: "400" },
+    ],
+  };
+
+  const urbaniaData = pricing.urbania || {
+    name: "Force Urbania",
+    seats: "13 – 17 Seats (Ultra Luxury)",
+    tagline: "Premium luxury van with recliner seating & panoramic windows",
+    image: "/images/cars/urbania.png",
+    extraKm: "₹50/km",
+    extraHr: "₹500/hr",
+    rows: [
+      { pkg: "8 hours 80 km", price: "₹10,000", extraKm: "50", extraHr: "500" },
+      { pkg: "12 hours 120 km", price: "₹14,000", extraKm: "50", extraHr: "500" },
+      { pkg: "24 hours 120 km", price: "₹20,000", extraKm: "50", extraHr: "500" },
+    ],
+  };
+
+  const currentTables = [
+    { ...tempoData, id: "tempo-traveller" },
+    { ...urbaniaData, id: "force-urbania" },
+  ];
+
+  const currentDriverNight = [
+    { slot: "08 pm to 12 am", charge: pricing.driverNight?.slot1 || "Rs.500/-" },
+    { slot: "08 pm to 06 am", charge: pricing.driverNight?.slot2 || "Rs.1000/-" },
+  ];
   return (
     <main data-testid="group-travel-page" className="relative pt-28 md:pt-36 bg-[#FFF8F2] text-[#493129]">
       {/* 3D Background Transition Animation Effect */}
@@ -66,7 +106,7 @@ export default function GroupTravel() {
 
       {/* Individual Vehicle Pricing Cards Section */}
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 space-y-16 md:space-y-24 pb-16">
-        {groupTables.map((v, idx) => (
+        {currentTables.map((v, idx) => (
           <Reveal key={v.id} delay={idx * 0.1}>
             <ThreeDTiltCard maxTilt={5} scale={1.01} className="rounded-[28px]">
               <div
@@ -211,7 +251,7 @@ export default function GroupTravel() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              {driverNight.map((r, i) => (
+              {currentDriverNight.map((r, i) => (
                 <div
                   key={i}
                   className="bg-[#FFF8F2] rounded-[20px] p-6 border border-[#F0DED2] shadow-soft flex items-center justify-between"

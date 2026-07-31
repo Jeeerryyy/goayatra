@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote, CheckCircle2, Pause, Play } from "lucide-react";
 import Reveal from "./Reveal";
 import ThreeDTiltCard from "./ThreeDTiltCard";
-import { reviews, reviewsMeta } from "@/data/reviews";
+import { reviewsMeta } from "@/data/reviews";
+import { useAdmin } from "@/context/AdminContext";
 
 function GoogleGlyph({ size = 16 }) {
   return (
@@ -23,28 +24,42 @@ function GoogleGlyph({ size = 16 }) {
 }
 
 export default function ReviewsWall() {
+  const { reviewsList } = useAdmin();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  const displayReviews = reviewsList && reviewsList.length > 0 ? reviewsList : [];
+
   // Duplicate reviews array to create seamless loop
-  const marqueeReviewsRow1 = [...reviews, ...reviews, ...reviews];
+  const marqueeReviewsRow1 = [...displayReviews, ...displayReviews, ...displayReviews];
   const marqueeReviewsRow2 = [...reviews.slice().reverse(), ...reviews.slice().reverse(), ...reviews.slice().reverse()];
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev >= displayReviews.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? Math.max(0, displayReviews.length - 1) : prev - 1));
   };
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || displayReviews.length === 0) return;
     const timer = setInterval(() => {
       nextSlide();
     }, 5000);
     return () => clearInterval(timer);
-  }, [currentIndex, isPaused]);
+  }, [currentIndex, isPaused, displayReviews.length]);
+
+  const currentReview = displayReviews[currentIndex] || displayReviews[0] || {
+    id: 1,
+    name: "Meera Iyer",
+    initials: "MI",
+    date: "Feb 2026",
+    source: "Google",
+    rating: 5,
+    vehicle: "Innova Crysta",
+    text: "Booked a Crysta for a four-day family trip — Yuvraj was on WhatsApp within a minute.",
+  };
 
   return (
     <section
@@ -101,13 +116,13 @@ export default function ReviewsWall() {
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <div className="flex gap-0.5">
-                      {Array.from({ length: item.rating }).map((_, k) => (
+                      {Array.from({ length: item.rating || 5 }).map((_, k) => (
                         <Star key={k} size={14} className="text-[#8B597B] fill-[#8B597B]" />
                       ))}
                     </div>
                     <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#493129] bg-[#FFF3EB] px-2.5 py-1 rounded-badge border border-[#F0DED2]">
                       <GoogleGlyph size={12} />
-                      <span>{item.source}</span>
+                      <span>{item.source || "Google"}</span>
                     </span>
                   </div>
                   <p className="text-xs sm:text-sm text-[#493129] font-body line-clamp-3 leading-relaxed font-medium">
@@ -118,7 +133,7 @@ export default function ReviewsWall() {
                 <div className="pt-3 border-t border-[#F0DED2] flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="h-9 w-9 rounded-full bg-[#493129] text-white font-heading text-xs font-bold flex items-center justify-center">
-                      {item.initials}
+                      {item.initials || item.name?.slice(0, 2) || "GY"}
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-[#493129] font-body">{item.name}</h4>
@@ -140,7 +155,7 @@ export default function ReviewsWall() {
 
           <AnimatePresence mode="wait">
             <motion.div
-              key={reviews[currentIndex].id}
+              key={currentReview.id || currentIndex}
               initial={{ opacity: 0, x: 15 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -15 }}
@@ -150,7 +165,7 @@ export default function ReviewsWall() {
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex gap-0.5">
-                    {Array.from({ length: reviews[currentIndex].rating }).map((_, k) => (
+                    {Array.from({ length: currentReview.rating || 5 }).map((_, k) => (
                       <Star key={k} size={18} className="text-[#8B597B] fill-[#8B597B]" />
                     ))}
                   </div>
@@ -160,19 +175,19 @@ export default function ReviewsWall() {
                 </div>
 
                 <p className="font-display font-medium text-lg sm:text-2xl text-[#493129] leading-relaxed max-w-4xl">
-                  &ldquo;{reviews[currentIndex].text}&rdquo;
+                  &ldquo;{currentReview.text}&rdquo;
                 </p>
               </div>
 
               <div className="mt-6 pt-6 border-t border-[#F0DED2] flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className="h-11 w-11 rounded-full bg-[#493129] text-white font-heading text-lg font-bold flex items-center justify-center shadow-soft">
-                    {reviews[currentIndex].initials}
+                    {currentReview.initials || currentReview.name?.slice(0, 2) || "GY"}
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-[#493129] font-body">{reviews[currentIndex].name}</h4>
+                    <h4 className="text-base font-bold text-[#493129] font-body">{currentReview.name}</h4>
                     <p className="text-xs text-[#856A63] font-body">
-                      {reviews[currentIndex].date} · <span className="text-[#8B597B] font-semibold">{reviews[currentIndex].vehicle}</span>
+                      {currentReview.date} · <span className="text-[#8B597B] font-semibold">{currentReview.vehicle}</span>
                     </p>
                   </div>
                 </div>
@@ -188,7 +203,7 @@ export default function ReviewsWall() {
           {/* Controls bar */}
           <div className="mt-6 pt-4 border-t border-[#F0DED2] flex items-center justify-between">
             <div className="flex items-center gap-2">
-              {reviews.map((_, idx) => (
+              {displayReviews.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}

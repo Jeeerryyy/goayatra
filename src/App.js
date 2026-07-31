@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import MobileStickyBar from "@/components/site/MobileStickyBar";
+import { AdminProvider } from "@/context/AdminContext";
 
 import Home from "@/pages/Home";
 import Fleet from "@/pages/Fleet";
@@ -11,12 +12,15 @@ import SelfDrive from "@/pages/SelfDrive";
 import GroupTravel from "@/pages/GroupTravel";
 import AboutContact from "@/pages/AboutContact";
 import Vehicle from "@/pages/Vehicle";
+import Admin from "@/pages/Admin";
 
 function Site() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
+
+  const isAdminRoute = pathname === "/admin";
 
   return (
     <div className="relative min-h-screen bg-[#FFF8F2] text-[#493129] font-body selection:bg-[#8B597B] selection:text-white">
@@ -27,7 +31,7 @@ function Site() {
       </div>
 
       <div className="relative z-10">
-        <Header />
+        {!isAdminRoute && <Header />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fleet" element={<Fleet />} />
@@ -36,21 +40,23 @@ function Site() {
           <Route path="/group-travel" element={<GroupTravel />} />
           <Route path="/about" element={<AboutContact />} />
           <Route path="/vehicle/:slug" element={<Vehicle />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Home />} />
         </Routes>
-        <Footer />
-        <MobileStickyBar />
-        <div className="h-16 lg:hidden" aria-hidden />
+        {!isAdminRoute && <Footer />}
+        {!isAdminRoute && <MobileStickyBar />}
+        {!isAdminRoute && <div className="h-16 lg:hidden" aria-hidden />}
       </div>
     </div>
   );
 }
 
-
 export default function App() {
   return (
-    <BrowserRouter>
-      <Site />
-    </BrowserRouter>
+    <AdminProvider>
+      <BrowserRouter>
+        <Site />
+      </BrowserRouter>
+    </AdminProvider>
   );
 }
