@@ -2,7 +2,7 @@ import { Phone } from "lucide-react";
 import { telLink, waLink } from "@/lib/site";
 
 // Instantly recognisable WhatsApp glyph
-const WhatsAppIcon = ({ size = 16, className = "" }) => (
+const WhatsAppIcon = ({ size = 18, className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -17,44 +17,43 @@ const WhatsAppIcon = ({ size = 16, className = "" }) => (
 );
 
 export function CallButton({
-  label = "Call",
+  label = "Call Us",
   size = "md",
   className = "",
   testId = "call-button",
 }) {
-  const pad = size === "lg" ? "px-6 py-4 text-sm" : "px-5 py-3 text-sm";
   return (
     <a
       href={telLink}
       data-testid={testId}
-      className={`btn btn-maroon ${pad} ${className}`}
+      className={`btn ${className || "btn-secondary"}`}
     >
-      <Phone size={size === "lg" ? 16 : 14} strokeWidth={1.7} />
+      <Phone size={size === "lg" ? 18 : 16} strokeWidth={2} />
       <span>{label}</span>
     </a>
   );
 }
 
 export function WhatsAppButton({
-  label = "WhatsApp",
+  label = "Book on WhatsApp",
   size = "md",
   message,
   className = "",
   testId = "whatsapp-button",
 }) {
-  const pad = size === "lg" ? "px-6 py-4 text-sm" : "px-5 py-3 text-sm";
   return (
     <a
       href={waLink(message)}
       target="_blank"
       rel="noopener noreferrer"
       data-testid={testId}
-      className={`btn btn-whatsapp ${pad} ${className}`}
+      className={`btn ${className || "btn-primary"}`}
     >
-      <WhatsAppIcon size={size === "lg" ? 16 : 14} />
+      <WhatsAppIcon size={size === "lg" ? 20 : 18} />
       <span>{label}</span>
     </a>
   );
 }
 
 export { WhatsAppIcon };
+

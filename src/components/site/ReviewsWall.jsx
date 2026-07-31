@@ -44,38 +44,38 @@ export default function ReviewsWall() {
   return (
     <section
       data-testid="reviews-wall"
-      className="py-20 md:py-28 mx-auto max-w-[1440px] px-6 md:px-10"
+      className="py-16 md:py-28 mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10"
     >
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-8 sm:mb-12">
         <div>
-          <h2 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
-            What travelers say <em className="italic text-maroon font-normal">about Goa Yatra.</em>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#493129] tracking-tight">
+            What Travelers Say <span className="text-[#8B597B]">About Goa Yatra</span>
           </h2>
-          <p className="mt-2 text-base text-ink-muted max-w-md">
-            Real experiences from travelers across India & abroad.
+          <p className="mt-2 text-sm sm:text-base text-[#6D4F47] font-body max-w-md">
+            Real experiences from travelers exploring Goa with us.
           </p>
         </div>
 
         {/* Stats summary badge */}
-        <div className="flex items-center gap-6 bg-bg-alt/80 rounded-2xl px-6 py-4 border border-hairline/80 shadow-sm">
+        <div className="flex items-center gap-4 sm:gap-6 bg-white rounded-badge px-5 sm:px-6 py-3.5 sm:py-4 border border-[#F0DED2] shadow-soft">
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-display text-3xl font-bold text-maroon">{reviewsMeta.avg}</span>
+              <span className="font-heading text-2xl sm:text-3xl font-bold text-[#493129]">{reviewsMeta.avg}</span>
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, k) => (
-                  <Star key={k} size={14} className="text-gold fill-gold" />
+                  <Star key={k} size={16} className="text-[#8B597B] fill-[#8B597B]" />
                 ))}
               </div>
             </div>
-            <p className="text-xs text-ink-muted mt-1 font-medium">{reviewsMeta.count} Verified Reviews</p>
+            <p className="text-xs text-[#856A63] mt-1 font-semibold font-body">{reviewsMeta.count} Verified Google Reviews</p>
           </div>
         </div>
       </div>
 
       {/* Carousel Container */}
-      <div className="relative bg-bg-alt/90 rounded-3xl p-8 md:p-14 border border-hairline/80 shadow-md">
-        <Quote size={44} className="text-maroon/15 absolute top-8 right-8" />
+      <div className="relative bg-white rounded-[20px] sm:rounded-[24px] p-6 sm:p-8 md:p-14 border border-[#F0DED2] shadow-large">
+        <Quote size={40} className="text-[#8B597B]/15 absolute top-6 right-6 sm:top-8 sm:right-8" />
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -84,37 +84,37 @@ export default function ReviewsWall() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex flex-col justify-between min-h-[220px]"
+            className="flex flex-col justify-between min-h-[200px] sm:min-h-[220px]"
             data-testid={`review-${currentReview.id}`}
           >
             {/* Stars & Quote */}
             <div>
-              <div className="flex items-center gap-1.5 mb-4">
+              <div className="flex items-center gap-1.5 mb-3 sm:mb-4">
                 {Array.from({ length: currentReview.rating }).map((_, k) => (
-                  <Star key={k} size={18} className="text-gold fill-gold" />
+                  <Star key={k} size={18} className="text-[#8B597B] fill-[#8B597B]" />
                 ))}
               </div>
-              <p className="font-display text-2xl md:text-3xl text-ink leading-relaxed max-w-4xl">
+              <p className="font-display font-medium text-lg sm:text-2xl md:text-3xl text-[#493129] leading-relaxed max-w-4xl">
                 &ldquo;{currentReview.text}&rdquo;
               </p>
             </div>
 
             {/* Author details */}
-            <div className="mt-8 pt-6 border-t border-hairline/60 flex flex-wrap items-center justify-between gap-4">
+            <div className="mt-8 pt-6 border-t border-[#F0DED2] flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full flex items-center justify-center bg-maroon text-white font-display text-lg font-bold">
+                <div className="h-12 w-12 rounded-full flex items-center justify-center bg-[#493129] text-white font-heading text-xl font-bold shadow-soft">
                   {currentReview.initials}
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-ink">{currentReview.name}</h4>
-                  <p className="text-xs text-ink-muted">
-                    {currentReview.date} · <span className="text-maroon font-medium">{currentReview.vehicle}</span>
+                  <h4 className="text-base font-bold text-[#493129] font-body">{currentReview.name}</h4>
+                  <p className="text-xs text-[#856A63] font-body">
+                    {currentReview.date} · <span className="text-[#8B597B] font-semibold">{currentReview.vehicle}</span>
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-xs tracking-wider text-ink-muted uppercase bg-bg px-3 py-1.5 rounded-full border border-hairline/60">
-                <GoogleGlyph size={14} />
+              <div className="flex items-center gap-2 text-xs font-semibold text-[#493129] bg-[#FFF3EB] px-3.5 py-1.5 rounded-badge border border-[#F0DED2]">
+                <GoogleGlyph size={16} />
                 <span>Verified {currentReview.source} Review</span>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function ReviewsWall() {
         </AnimatePresence>
 
         {/* Navigation Controls */}
-        <div className="mt-8 flex items-center justify-between border-t border-hairline/40 pt-6">
+        <div className="mt-8 flex items-center justify-between border-t border-[#F0DED2] pt-6">
           {/* Pagination Indicators */}
           <div className="flex items-center gap-2">
             {reviews.map((_, idx) => (
@@ -131,7 +131,7 @@ export default function ReviewsWall() {
                 onClick={() => setCurrentIndex(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
-                  idx === currentIndex ? "w-8 bg-maroon" : "w-2.5 bg-maroon/20 hover:bg-maroon/40"
+                  idx === currentIndex ? "w-8 bg-[#8B597B]" : "w-2.5 bg-[#493129]/20 hover:bg-[#493129]/40"
                 }`}
               />
             ))}
@@ -142,14 +142,14 @@ export default function ReviewsWall() {
             <button
               onClick={prevSlide}
               aria-label="Previous review"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-bg hover:bg-maroon hover:text-white transition-colors text-ink shadow-sm"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-btn border border-[#F0DED2] bg-[#FFF8F2] hover:bg-[#8B597B] hover:text-white transition-colors text-[#493129] shadow-soft"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextSlide}
               aria-label="Next review"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-bg hover:bg-maroon hover:text-white transition-colors text-ink shadow-sm"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-btn border border-[#F0DED2] bg-[#FFF8F2] hover:bg-[#8B597B] hover:text-white transition-colors text-[#493129] shadow-soft"
             >
               <ChevronRight size={20} />
             </button>
@@ -159,3 +159,4 @@ export default function ReviewsWall() {
     </section>
   );
 }
+

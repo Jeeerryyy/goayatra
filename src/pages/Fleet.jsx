@@ -19,20 +19,23 @@ export default function Fleet() {
       : vehicles;
 
   return (
-    <main data-testid="fleet-page" className="pt-24 md:pt-28">
+    <main data-testid="fleet-page" className="pt-28 md:pt-36 bg-[#FFF8F2] text-[#493129]">
       {/* Header */}
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-12 md:pb-16">
         <div className="max-w-3xl">
-          <h1 className="font-display text-4xl md:text-6xl text-ink tracking-tight leading-tight">
-            All Fleet & <em className="italic text-maroon font-normal">Rental Packages.</em>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-badge bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] text-xs font-semibold uppercase tracking-wider mb-3">
+            Explore Goa Fleet
+          </div>
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-[#493129] tracking-tight leading-tight">
+            All Fleet &amp; <span className="text-[#8B597B]">Rental Packages</span>
           </h1>
-          <p className="mt-4 text-base md:text-lg text-ink-muted leading-relaxed">
-            Choose from self-drive hatchbacks, SUVs, luxury cars, or chauffeur-driven vehicles & Tempo Travellers across Goa.
+          <p className="mt-4 text-base md:text-lg text-[#6D4F47] font-body leading-relaxed">
+            Choose from self-drive hatchbacks, SUVs, luxury convertibles, or chauffeur-driven vehicles &amp; Tempo Travellers across Goa.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="mt-10 flex flex-wrap gap-2">
+        <div className="mt-10 flex flex-wrap gap-3">
           {[
             { id: "all", label: "All Vehicles (18)" },
             { id: "self-drive", label: "Self-Drive (13)" },
@@ -42,10 +45,10 @@ export default function Fleet() {
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+              className={`px-6 py-3 rounded-badge text-sm font-semibold transition-all duration-300 shadow-soft ${
                 filter === tab.id
-                  ? "bg-maroon text-white shadow-sm"
-                  : "bg-bg-alt text-ink hover:bg-maroon/10"
+                  ? "bg-[#493129] text-white"
+                  : "bg-white text-[#493129] hover:bg-[#FFF3EB] border border-[#F0DED2]"
               }`}
             >
               {tab.label}
@@ -64,12 +67,15 @@ export default function Fleet() {
       </section>
 
       {/* Detailed Charges & Rate Sheets */}
-      <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24 border-t border-hairline/40">
+      <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24 border-t border-[#F0DED2]">
         <div className="mb-12">
-          <h2 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
-            Complete <em className="italic text-maroon font-normal">Rate Cards & Charges.</em>
+          <span className="px-3 py-1 rounded-badge bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] font-semibold text-xs uppercase tracking-wider">
+            Pricing Sheet
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#493129] tracking-tight mt-2">
+            Complete <span className="text-[#8B597B]">Rate Cards &amp; Charges</span>
           </h2>
-          <p className="mt-2 text-base text-ink-muted max-w-lg">
+          <p className="mt-2 text-base text-[#6D4F47] font-body max-w-lg">
             Flat transparent rates. No hidden fees or surprise surcharges.
           </p>
         </div>
@@ -82,7 +88,7 @@ export default function Fleet() {
               name={t.name}
               tagline={t.tagline}
               rows={t.rows}
-              waMessage={`Hi Goa Yatra, I'd like to enquire about the ${t.name} package.`}
+              waMessage={`Hi Goa Yatra! I'd like to enquire about the ${t.name} package.`}
               testId={`fleet-pricing-${t.id}`}
             />
           ))}
@@ -96,7 +102,7 @@ export default function Fleet() {
             columns={["Vehicle", "Manual Rate", "Automatic Rate", "Delivery", "Return Pickup", "Security Deposit"]}
             rows={selfDriveRows}
             keys={["veh", "manual", "auto", "delivery", "pickup", "deposit"]}
-            waMessage="Hi Goa Yatra, I'd like to check self-drive availability."
+            waMessage="Hi Goa Yatra! I'd like to check self-drive availability."
             testId="fleet-self-drive-rates"
           />
         </div>
@@ -104,18 +110,13 @@ export default function Fleet() {
 
       {/* CTA */}
       <CTABand
-        eyebrow="Ready when you are"
-        headline={
-          <>
-            Select your car.
-            <br />
-            <em className="italic text-maroon font-normal">Get moving in Goa.</em>
-          </>
-        }
-        sub="Speak directly to our Porvorim office for immediate quotes and instant dispatch."
-        waMsg="Hi Goa Yatra, I'm looking at the Fleet page and need a car quote."
+        eyebrow="Your Trip Awaits"
+        headline="Select your ride &amp; reserve your journey in Goa."
+        sub="Connect directly with our team for instant quotes &amp; quick reservations."
+        waMsg="Hi Goa Yatra! I'm looking at the Fleet page and need a car quote."
         testId="fleet-cta-band"
       />
     </main>
   );
 }
+

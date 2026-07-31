@@ -15,15 +15,15 @@ export default function MobileStickyBar() {
   return (
     <div
       data-testid="mobile-sticky-bar"
-      className={`fixed inset-x-0 bottom-0 z-40 lg:hidden transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      className={`fixed inset-x-0 bottom-0 z-40 lg:hidden bg-[#493129] pb-[env(safe-area-inset-bottom,0px)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="grid grid-cols-2 border-t border-hairline">
+      <div className="grid grid-cols-2 border-t border-[#F0DED2]">
         <a
           href={telLink}
           data-testid="sticky-call"
-          className="flex items-center justify-center gap-2 bg-maroon text-bg py-4 text-sm font-medium tracking-wide"
+          className="flex items-center justify-center gap-2 bg-[#8B597B] text-white py-4 text-sm font-semibold tracking-wide"
         >
           <Phone size={15} strokeWidth={1.7} />
           Call Now
@@ -33,7 +33,7 @@ export default function MobileStickyBar() {
           target="_blank"
           rel="noopener noreferrer"
           data-testid="sticky-whatsapp"
-          className="flex items-center justify-center gap-2 bg-whatsapp text-[#0b3d1c] py-4 text-sm font-medium tracking-wide"
+          className="flex items-center justify-center gap-2 bg-[#493129] text-white py-4 text-sm font-semibold tracking-wide"
         >
           <WhatsAppIcon size={15} />
           WhatsApp

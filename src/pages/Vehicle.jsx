@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ChevronLeft, ChevronRight, Users, Fuel, Snowflake, Gauge, Briefcase } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Users, Fuel, Snowflake, Gauge, Briefcase, CheckCircle2 } from "lucide-react";
 import Reveal from "@/components/site/Reveal";
 import CTABand from "@/components/site/CTABand";
 import { CallButton, WhatsAppButton } from "@/components/site/CTAButtons";
@@ -35,7 +35,7 @@ function CarImageCarousel({ images, carName }) {
   }, [images.length]);
 
   return (
-    <div className="relative rounded-3xl overflow-hidden bg-bg-alt border border-hairline/80 shadow-md aspect-[4/3] md:aspect-[16/11]">
+    <div className="relative rounded-[24px] overflow-hidden bg-white border border-[#F0DED2] shadow-large aspect-[4/3] md:aspect-[16/11]">
       <AnimatePresence mode="wait">
         <motion.img
           key={currentIndex}
@@ -52,14 +52,14 @@ function CarImageCarousel({ images, carName }) {
       {/* Navigation Controls */}
       <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
         {/* Pagination Indicators */}
-        <div className="flex items-center gap-2 bg-bg/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-hairline/60">
+        <div className="flex items-center gap-2 bg-[#493129]/80 backdrop-blur-md px-3 py-1.5 rounded-badge border border-white/20">
           {images.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               aria-label={`Go to slide ${idx + 1}`}
               className={`h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex ? "w-6 bg-maroon" : "w-2 bg-maroon/30 hover:bg-maroon/50"
+                idx === currentIndex ? "w-6 bg-[#8B597B]" : "w-2 bg-white/40 hover:bg-white/70"
               }`}
             />
           ))}
@@ -70,14 +70,14 @@ function CarImageCarousel({ images, carName }) {
           <button
             onClick={prevSlide}
             aria-label="Previous image"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-bg/90 backdrop-blur-md text-ink hover:bg-maroon hover:text-white transition-colors shadow-sm"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#F0DED2] bg-white text-[#493129] hover:bg-[#8B597B] hover:text-white transition-colors shadow-soft"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={nextSlide}
             aria-label="Next image"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-bg/90 backdrop-blur-md text-ink hover:bg-maroon hover:text-white transition-colors shadow-sm"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#F0DED2] bg-white text-[#493129] hover:bg-[#8B597B] hover:text-white transition-colors shadow-soft"
           >
             <ChevronRight size={18} />
           </button>
@@ -112,25 +112,25 @@ export default function Vehicle() {
     )
     .slice(0, 3);
 
-  const waMsg = `Hi Goa Yatra, I'd like to enquire about the ${v.name}.`;
+  const waMsg = `Hi Goa Yatra! I'd like to enquire about the ${v.name}.`;
 
   const carImages = [v.images?.hero, v.images?.cabin, v.images?.exterior].filter(Boolean);
 
   return (
-    <main data-testid={`vehicle-page-${v.slug}`} className="pt-20 md:pt-24">
+    <main data-testid={`vehicle-page-${v.slug}`} className="pt-28 md:pt-36 bg-[#FFF8F2] text-[#493129]">
       {/* Breadcrumb */}
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-4">
-        <div className="flex items-center gap-3 text-xs tracking-wider uppercase text-ink-muted">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-6">
+        <div className="flex items-center gap-3 text-xs uppercase font-semibold text-[#856A63] font-body">
           <Link
             to="/fleet"
-            className="inline-flex items-center gap-2 hover:text-maroon transition-colors"
+            className="inline-flex items-center gap-2 hover:text-[#8B597B] transition-colors"
             data-testid="vehicle-back-link"
           >
-            <ArrowLeft size={14} strokeWidth={1.8} />
+            <ArrowLeft size={14} strokeWidth={2} />
             <span>Back to Fleet</span>
           </Link>
-          <span className="text-gold">/</span>
-          <span className="text-ink font-medium">{v.name}</span>
+          <span className="text-[#8B597B]">/</span>
+          <span className="text-[#493129] font-bold">{v.name}</span>
         </div>
       </div>
 
@@ -138,26 +138,29 @@ export default function Vehicle() {
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-12 md:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-7">
-            <span className="text-xs uppercase font-semibold text-maroon tracking-widest">{v.category}</span>
-            <h1 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl text-ink tracking-tight leading-tight">
+            <span className="px-3 py-1 rounded-badge bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] font-semibold text-xs uppercase tracking-wider">
+              {v.category}
+            </span>
+            <h1 className="mt-3 font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-[#493129] tracking-tight leading-tight">
               {v.name}
             </h1>
-            <p className="mt-4 text-base md:text-lg text-ink-muted leading-relaxed max-w-xl">
+            <p className="mt-4 text-lg text-[#6D4F47] font-body leading-relaxed max-w-xl">
               {v.tagline}
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <CallButton label="Call to book" size="lg" testId="vehicle-call" />
+            <div className="mt-6 flex flex-wrap gap-4">
               <WhatsAppButton
-                label={`WhatsApp about ${v.name}`}
+                label={`Book ${v.name} on WhatsApp`}
                 size="lg"
                 message={waMsg}
                 testId="vehicle-whatsapp"
+                className="btn-primary shadow-large"
               />
+              <CallButton label="Call to Book" size="lg" testId="vehicle-call" className="btn-secondary" />
             </div>
 
             {/* Quick Specs Grid */}
-            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-bg-alt/70 rounded-2xl p-5 border border-hairline/60">
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-white rounded-[20px] p-5 border border-[#F0DED2] shadow-soft">
               <SpecItem Icon={Users} label="Seats" value={v.seats} />
               <SpecItem Icon={Gauge} label="Transmission" value={v.transmission} />
               <SpecItem Icon={Fuel} label="Fuel" value={v.fuel} />
@@ -175,12 +178,12 @@ export default function Vehicle() {
       {/* Story & Highlights */}
       <section
         data-testid="vehicle-story"
-        className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-hairline/40"
+        className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#F0DED2]"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <div className="md:col-span-7">
             <Reveal>
-              <h2 className="font-display text-2xl md:text-3xl text-ink leading-relaxed">
+              <h2 className="font-display font-medium text-2xl md:text-3xl text-[#493129] leading-relaxed">
                 {v.story}
               </h2>
             </Reveal>
@@ -188,11 +191,11 @@ export default function Vehicle() {
 
           <div className="md:col-span-5">
             <Reveal delay={0.08}>
-              <h3 className="text-xs uppercase tracking-widest text-maroon font-semibold mb-4">Highlights</h3>
+              <h3 className="text-xs uppercase font-semibold tracking-wider text-[#8B597B] mb-4">Highlights &amp; Features</h3>
               <ul className="space-y-3">
                 {v.highlights.map((h, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-ink bg-bg-alt/60 px-4 py-3 rounded-xl border border-hairline/60">
-                    <span className="h-2 w-2 rounded-full bg-maroon shrink-0" />
+                  <li key={i} className="flex items-center gap-3 text-sm font-semibold text-[#493129] bg-white px-4 py-3 rounded-[16px] border border-[#F0DED2] shadow-soft font-body">
+                    <CheckCircle2 size={18} className="text-[#8B597B] shrink-0" />
                     <span>{h}</span>
                   </li>
                 ))}
@@ -204,27 +207,27 @@ export default function Vehicle() {
 
       {/* Pricing Sheet for vehicle */}
       {isChauffeur && chauffeurTable && (
-        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-hairline/40">
-          <h2 className="font-display text-3xl md:text-4xl text-ink tracking-tight mb-6">
-            Chauffeur Rates & Packages
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#F0DED2]">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#493129] tracking-tight mb-6">
+            Chauffeur Rates &amp; <span className="text-[#8B597B]">Packages</span>
           </h2>
-          <div className="rounded-3xl bg-bg-alt/70 p-6 md:p-8 border border-hairline/80 shadow-sm overflow-hidden">
+          <div className="rounded-[24px] bg-white p-6 md:p-8 border border-[#F0DED2] shadow-card overflow-hidden">
             <table className="goa-table min-w-[600px]">
               <thead>
                 <tr>
-                  <th>Package</th>
-                  <th>Rate</th>
-                  <th>Extra Km</th>
-                  <th>Extra Hour</th>
+                  <th className="font-heading font-bold text-[#493129]">Package</th>
+                  <th className="font-heading font-bold text-[#493129]">Rate</th>
+                  <th className="font-heading font-bold text-[#493129]">Extra Km</th>
+                  <th className="font-heading font-bold text-[#493129]">Extra Hour</th>
                 </tr>
               </thead>
               <tbody>
                 {chauffeurTable.rows.map((r, i) => (
-                  <tr key={i}>
-                    <td className="font-medium">{r.pkg}</td>
-                    <td className="price font-display">{r.price}</td>
-                    <td>{r.extraKm}</td>
-                    <td>{r.extraHr}</td>
+                  <tr key={i} className="hover:bg-[#FFF3EB] transition-colors">
+                    <td className="font-bold text-[#493129] font-body">{r.pkg}</td>
+                    <td className="price font-heading font-bold text-[#493129] text-2xl">{r.price}</td>
+                    <td className="text-[#6D4F47] font-body">{r.extraKm}</td>
+                    <td className="text-[#6D4F47] font-body">{r.extraHr}</td>
                   </tr>
                 ))}
               </tbody>
@@ -234,26 +237,26 @@ export default function Vehicle() {
       )}
 
       {isSelfDrive && selfDriveRow && (
-        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-hairline/40">
-          <h2 className="font-display text-3xl md:text-4xl text-ink tracking-tight mb-6">
-            Self-Drive Rental Charges
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#F0DED2]">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#493129] tracking-tight mb-6">
+            Self-Drive Rental <span className="text-[#8B597B]">Charges</span>
           </h2>
-          <div className="rounded-3xl bg-bg-alt/70 p-6 md:p-8 border border-hairline/80 shadow-sm overflow-hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="rounded-[24px] bg-white p-6 md:p-8 border border-[#F0DED2] shadow-card overflow-hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div>
-              <p className="text-xs text-ink-muted uppercase">Manual Rate</p>
-              <p className="font-display text-2xl text-maroon mt-1">{selfDriveRow.manual}</p>
+              <p className="text-xs font-semibold text-[#856A63] uppercase">Manual Rate</p>
+              <p className="font-heading font-bold text-3xl text-[#493129] mt-1">{selfDriveRow.manual}</p>
             </div>
             <div>
-              <p className="text-xs text-ink-muted uppercase">Automatic Rate</p>
-              <p className="font-display text-2xl text-maroon mt-1">{selfDriveRow.auto}</p>
+              <p className="text-xs font-semibold text-[#856A63] uppercase">Automatic Rate</p>
+              <p className="font-heading font-bold text-3xl text-[#493129] mt-1">{selfDriveRow.auto}</p>
             </div>
             <div>
-              <p className="text-xs text-ink-muted uppercase">Delivery / Pickup</p>
-              <p className="font-display text-lg text-ink mt-1">₹500 / ₹500</p>
+              <p className="text-xs font-semibold text-[#856A63] uppercase">Delivery / Pickup</p>
+              <p className="font-heading font-bold text-xl text-[#493129] mt-1">₹500 / ₹500</p>
             </div>
             <div>
-              <p className="text-xs text-ink-muted uppercase">Refundable Deposit</p>
-              <p className="font-display text-lg text-ink mt-1">{selfDriveRow.deposit}</p>
+              <p className="text-xs font-semibold text-[#856A63] uppercase">Refundable Deposit</p>
+              <p className="font-heading font-bold text-xl text-[#493129] mt-1">{selfDriveRow.deposit}</p>
             </div>
           </div>
         </section>
@@ -261,9 +264,9 @@ export default function Vehicle() {
 
       {/* Related Fleet */}
       {related.length > 0 && (
-        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-hairline/40">
-          <h2 className="font-display text-3xl md:text-4xl text-ink tracking-tight mb-8">
-            Similar <em className="italic text-maroon font-normal">Vehicles.</em>
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#F0DED2]">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#493129] tracking-tight mb-8">
+            Similar <span className="text-[#8B597B]">Rides in Goa</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {related.map((rv, i) => (
@@ -275,15 +278,9 @@ export default function Vehicle() {
 
       {/* CTA Band */}
       <CTABand
-        eyebrow="Ready to book?"
-        headline={
-          <>
-            Book your {v.name}.
-            <br />
-            <em className="italic text-maroon font-normal">Directly on WhatsApp.</em>
-          </>
-        }
-        sub="Speak directly to our Porvorim team for instant booking confirmation."
+        eyebrow="Direct Reservation"
+        headline={`Book your ${v.name} today.`}
+        sub="Speak directly with our team for instant vehicle confirmation."
         waMsg={waMsg}
         testId="vehicle-cta-band"
       />
@@ -294,11 +291,12 @@ export default function Vehicle() {
 function SpecItem({ Icon, label, value }) {
   return (
     <div className="flex flex-col">
-      <div className="flex items-center gap-1.5 text-xs text-ink-muted">
-        <Icon size={14} className="text-maroon shrink-0" />
+      <div className="flex items-center gap-1.5 text-xs text-[#856A63] font-body">
+        <Icon size={16} className="text-[#8B597B] shrink-0" />
         <span>{label}</span>
       </div>
-      <span className="font-semibold text-sm text-ink mt-1">{value}</span>
+      <span className="font-heading font-bold text-base text-[#493129] mt-1">{value}</span>
     </div>
   );
 }
+

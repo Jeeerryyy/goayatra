@@ -8,49 +8,96 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Brand palette (locked)
+        // Sunset Color Palette v2.0
+        brown: {
+          DEFAULT: "#493129",
+          hover: "#3C2721",
+          light: "#6D4F47",
+          muted: "#856A63",
+        },
+        plum: {
+          DEFAULT: "#8B597B",
+          hover: "#754A66",
+        },
+        pink: {
+          DEFAULT: "#EFA3A0",
+        },
+        peach: {
+          DEFAULT: "#F8DCC7",
+        },
+        
+        // Backward-compatible semantic aliases mapped to Sunset Palette
+        navy: {
+          DEFAULT: "#493129",
+          deep: "#3C2721",
+          light: "#6D4F47",
+        },
+        orange: {
+          DEFAULT: "#493129",
+          hover: "#3C2721",
+          soft: "#FFF3EB",
+        },
+        yellow: {
+          DEFAULT: "#8B597B",
+          soft: "#F8DCC7",
+        },
+        teal: {
+          DEFAULT: "#8B597B",
+          soft: "#FFF3EB",
+        },
+        sand: {
+          DEFAULT: "#FFF8F2",
+          muted: "#FFF3EB",
+        },
+        
+        // Semantic mappings
         bg: {
-          DEFAULT: "#FAF7F2",
-          alt: "#F1ECE3",
+          DEFAULT: "#FFF8F2",
+          alt: "#FFF3EB",
+          card: "#FFFFFF",
         },
         ink: {
-          DEFAULT: "#1B1B1B",
-          muted: "#5A5450",
-          inverse: "#FAF7F2",
+          DEFAULT: "#493129",
+          muted: "#856A63",
+          inverse: "#FFFFFF",
         },
-        maroon: {
-          DEFAULT: "#5C1A1A",
-          deep: "#490F0D",
-        },
-        gold: "#B08D57",
-        whatsapp: "#25D366",
-        hairline: "#E4DED3",
+        whatsapp: "#493129",
+        hairline: "#F0DED2",
 
-        // Shadcn tokens kept for compatibility
-        background: "#FAF7F2",
-        foreground: "#1B1B1B",
-        border: "#E4DED3",
-        input: "#E4DED3",
-        ring: "#5C1A1A",
-        card: { DEFAULT: "#FAF7F2", foreground: "#1B1B1B" },
-        popover: { DEFAULT: "#FAF7F2", foreground: "#1B1B1B" },
-        primary: { DEFAULT: "#5C1A1A", foreground: "#FAF7F2" },
-        secondary: { DEFAULT: "#F1ECE3", foreground: "#1B1B1B" },
-        muted: { DEFAULT: "#F1ECE3", foreground: "#5A5450" },
-        accent: { DEFAULT: "#F1ECE3", foreground: "#1B1B1B" },
-        destructive: { DEFAULT: "#5C1A1A", foreground: "#FAF7F2" },
+        // Shadcn compatibility tokens
+        background: "#FFF8F2",
+        foreground: "#493129",
+        border: "#F0DED2",
+        input: "#F0DED2",
+        ring: "#8B597B",
+        card: { DEFAULT: "#FFFFFF", foreground: "#493129" },
+        popover: { DEFAULT: "#FFFFFF", foreground: "#493129" },
+        primary: { DEFAULT: "#493129", foreground: "#FFFFFF" },
+        secondary: { DEFAULT: "#8B597B", foreground: "#FFFFFF" },
+        muted: { DEFAULT: "#FFF3EB", foreground: "#856A63" },
+        accent: { DEFAULT: "#EFA3A0", foreground: "#493129" },
+        destructive: { DEFAULT: "#8B597B", foreground: "#FFFFFF" },
       },
       fontFamily: {
-        display: ["'Playfair Display'", "serif"],
-        body: ["Inter", "sans-serif"],
+        display: ["'Playfair Display'", "'Plus Jakarta Sans'", "sans-serif"],
+        heading: ["'Plus Jakarta Sans'", "sans-serif"],
+        body: ["'Plus Jakarta Sans'", "sans-serif"],
       },
       borderRadius: {
-        lg: "8px",
-        md: "6px",
-        sm: "4px",
+        card: "24px",
+        button: "14px",
+        btn: "14px",
+        img: "24px",
+        badge: "9999px",
+        lg: "20px",
+        md: "14px",
+        sm: "8px",
       },
-      letterSpacing: {
-        "wide-ux": "0.2em",
+      boxShadow: {
+        soft: "0 8px 24px rgba(73,49,41,0.06)",
+        large: "0 20px 40px rgba(73,49,41,0.09)",
+        card: "0 8px 24px rgba(73,49,41,0.06)",
+        cardHover: "0 16px 36px rgba(73,49,41,0.10)",
       },
       keyframes: {
         "accordion-down": {
@@ -65,11 +112,21 @@ module.exports = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        wave: {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(10deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee 45s linear infinite",
+        float: "float 4s ease-in-out infinite",
+        wave: "wave 3s ease-in-out infinite",
       },
     },
   },

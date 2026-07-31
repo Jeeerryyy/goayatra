@@ -6,6 +6,9 @@ import MobileStickyBar from "@/components/site/MobileStickyBar";
 
 import Home from "@/pages/Home";
 import Fleet from "@/pages/Fleet";
+import CarsWithDriver from "@/pages/CarsWithDriver";
+import SelfDrive from "@/pages/SelfDrive";
+import GroupTravel from "@/pages/GroupTravel";
 import AboutContact from "@/pages/AboutContact";
 import Vehicle from "@/pages/Vehicle";
 
@@ -16,24 +19,33 @@ function Site() {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-bg text-ink">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/fleet" element={<Fleet />} />
-        <Route path="/cars-with-driver" element={<Fleet />} />
-        <Route path="/self-drive" element={<Fleet />} />
-        <Route path="/group-travel" element={<Fleet />} />
-        <Route path="/about" element={<AboutContact />} />
-        <Route path="/vehicle/:slug" element={<Vehicle />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
-      <Footer />
-      <MobileStickyBar />
-      <div className="h-16 lg:hidden" aria-hidden />
+    <div className="relative min-h-screen bg-[#FFF8F2] text-[#493129] font-body selection:bg-[#8B597B] selection:text-white">
+      {/* Global Soft Sunset Background Ambient Glow */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#F8DCC7]/20 rounded-full filter blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#EFA3A0]/15 rounded-full filter blur-3xl pointer-events-none" />
+      </div>
+
+      <div className="relative z-10">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/fleet" element={<Fleet />} />
+          <Route path="/cars-with-driver" element={<CarsWithDriver />} />
+          <Route path="/self-drive" element={<SelfDrive />} />
+          <Route path="/group-travel" element={<GroupTravel />} />
+          <Route path="/about" element={<AboutContact />} />
+          <Route path="/vehicle/:slug" element={<Vehicle />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+        <Footer />
+        <MobileStickyBar />
+        <div className="h-16 lg:hidden" aria-hidden />
+      </div>
     </div>
   );
 }
+
 
 export default function App() {
   return (

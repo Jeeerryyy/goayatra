@@ -1,40 +1,36 @@
 import { Link } from "react-router-dom";
-import { Instagram, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Instagram, MapPin, Phone, Mail, Clock, Compass, Heart } from "lucide-react";
 import { BRAND, NAV, telLink } from "@/lib/site";
 import LogoIcon from "./LogoIcon";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer data-testid="site-footer" className="mt-20 py-12">
+    <footer data-testid="site-footer" className="mt-20 bg-[#493129] text-white">
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-10">
         {/* Brand block */}
         <div className="md:col-span-4">
           <div className="flex items-center gap-3">
-            <LogoIcon className="h-10 w-10" />
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-3xl text-maroon">Goa Yatra</span>
-              <span className="mt-1 text-[10px] tracking-[0.28em] text-ink font-medium uppercase">
-                TTG Travels
-              </span>
-            </div>
+            <LogoIcon variant="full" className="h-16 md:h-20 w-auto" />
           </div>
-          <p className="mt-6 max-w-xs text-sm text-ink-muted leading-relaxed">
-            Chauffeur and self-drive rentals across Goa — one number, every road.
-            Tempo Traveller and Urbania for group runs.
+          <p className="mt-4 text-[#F8DCC7] font-display text-lg font-medium tracking-wide">
+            &ldquo;{BRAND.tagline}&rdquo;
           </p>
-          <div className="mt-8 flex items-center gap-3">
+          <p className="mt-3 max-w-xs text-sm text-[#F8DCC7]/80 leading-relaxed font-body">
+            We make every Goa trip simple, affordable, and unforgettable. Reliable cars, airport pickups, and group road trips.
+          </p>
+          <div className="mt-6 flex items-center gap-3">
             <a
               href={BRAND.instagram}
               target="_blank"
               rel="noopener noreferrer"
               data-testid="footer-instagram"
-              className="inline-flex h-10 w-10 items-center justify-center border border-ink text-ink hover:bg-ink hover:text-bg transition-colors"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#F8DCC7]/20 bg-white/5 text-[#F8DCC7] hover:bg-[#EFA3A0] hover:text-[#493129] transition-all transform hover:scale-105"
               aria-label="Instagram"
             >
-              <Instagram size={16} strokeWidth={1.7} />
+              <Instagram size={18} strokeWidth={2} />
             </a>
-            <span className="text-[11px] tracking-[0.22em] uppercase text-ink-muted">
+            <span className="text-xs font-semibold tracking-wider text-[#F8DCC7]/90 font-body">
               @goa.yatra.ttg
             </span>
           </div>
@@ -42,67 +38,79 @@ export default function Footer() {
 
         {/* Contact */}
         <div className="md:col-span-4">
-          <p className="overline">Contact</p>
-          <div className="mt-4 space-y-4 text-sm">
+          <p className="font-heading text-lg font-bold text-white uppercase tracking-wider mb-4">
+            Get In Touch
+          </p>
+          <div className="space-y-4 text-sm font-body">
             <div className="flex items-start gap-3">
-              <MapPin size={14} className="mt-1 text-gold" strokeWidth={1.6} />
-              <span className="text-ink" data-testid="footer-address">
+              <MapPin size={18} className="mt-1 text-[#EFA3A0] shrink-0" strokeWidth={2} />
+              <span className="text-[#F8DCC7]/90" data-testid="footer-address">
                 {BRAND.address}
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <Phone size={14} className="text-gold" strokeWidth={1.6} />
+              <Phone size={18} className="text-[#EFA3A0] shrink-0" strokeWidth={2} />
               <a
                 href={telLink}
                 data-testid="footer-phone"
-                className="text-ink hover:text-maroon transition-colors"
+                className="text-[#F8DCC7] hover:text-[#EFA3A0] transition-colors font-medium"
               >
                 {BRAND.phone}
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <Mail size={14} className="text-gold" strokeWidth={1.6} />
+              <Mail size={18} className="text-[#EFA3A0] shrink-0" strokeWidth={2} />
               <a
                 href={`mailto:${BRAND.email}`}
                 data-testid="footer-email"
-                className="text-ink hover:text-maroon transition-colors"
+                className="text-[#F8DCC7] hover:text-[#EFA3A0] transition-colors font-medium"
               >
                 {BRAND.email}
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <Clock size={14} className="text-gold" strokeWidth={1.6} />
-              <span className="text-ink">{BRAND.hours}</span>
+              <Clock size={18} className="text-[#8B597B] shrink-0" strokeWidth={2} />
+              <span className="text-[#F8DCC7]/90">{BRAND.hours}</span>
             </div>
           </div>
         </div>
 
         {/* Sitemap */}
         <div className="md:col-span-4">
-          <p className="overline">Explore</p>
-          <ul className="mt-4 space-y-3 text-sm">
+          <p className="font-heading text-lg font-bold text-white uppercase tracking-wider mb-4">
+            Explore Goa
+          </p>
+          <ul className="space-y-3 text-sm font-body">
             {NAV.map((n) => (
               <li key={n.to}>
                 <Link
                   to={n.to}
                   data-testid={`footer-nav-${n.short.toLowerCase()}`}
-                  className="text-ink hover-underline"
+                  className="text-[#F8DCC7] hover:text-[#EFA3A0] transition-colors inline-flex items-center gap-2 group"
                 >
-                  {n.label}
+                  <Compass size={14} className="text-[#EFA3A0] transition-transform group-hover:rotate-45" />
+                  <span>{n.label}</span>
                 </Link>
               </li>
             ))}
           </ul>
+          <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10 text-xs text-[#F8DCC7]/90">
+            <span className="text-white font-bold">Ready for Beach &amp; Roads?</span>
+            <p className="mt-1">Book your ride today and make memories tomorrow!</p>
+          </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="bg-maroon-deep text-bg">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[11px] tracking-[0.2em] uppercase">
-          <span>© {year} Goa Yatra · TTG Travels</span>
-          <span className="text-bg/70">Cars with drivers · Porvorim, Goa</span>
+      <div className="bg-[#3C2721] border-t border-white/10 text-[#F8DCC7]/80">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs tracking-wider font-body">
+          <span>© {year} Goa Yatra — TTG Travels. All Rights Reserved.</span>
+          <span className="inline-flex items-center gap-1 text-[#F8DCC7]/80">
+            Made with <Heart size={14} className="text-[#EFA3A0] fill-[#EFA3A0]" /> for Goa Yatra
+          </span>
         </div>
       </div>
     </footer>
   );
 }
+

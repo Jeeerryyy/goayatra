@@ -1,31 +1,36 @@
 import { motion } from "framer-motion";
 
 /**
- * Slow editorial horizontal marquee (single line).
- * The list is duplicated so the CSS translate can loop seamlessly.
+ * Continuous infinite horizontal moving marquee ticker strip.
  */
 export default function Marquee({ items = [], separator = "·", testId = "marquee" }) {
-  const list = [...items, ...items];
+  // Duplicate list so translate can loop seamlessly
+  const list = [...items, ...items, ...items, ...items];
+
   return (
-    <motion.section
+    <section
       data-testid={testId}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="relative overflow-hidden bg-bg-alt/70 py-6"
+      className="relative overflow-hidden bg-[#FFF3EB] border-y border-[#F0DED2] py-5 select-none"
     >
-      <div className="marquee-track whitespace-nowrap">
+      <motion.div
+        className="flex whitespace-nowrap gap-8 w-max"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{
+          repeat: Infinity,
+          ease: "linear",
+          duration: 30,
+        }}
+      >
         {list.map((it, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-8 font-display text-3xl md:text-4xl text-ink"
+            className="inline-flex items-center gap-8 font-heading font-semibold text-2xl md:text-3xl text-[#493129]"
           >
             <span>{it}</span>
-            <span className="text-gold text-xl">{separator}</span>
+            {separator && <span className="text-[#8B597B] text-xl">{separator}</span>}
           </span>
         ))}
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 }

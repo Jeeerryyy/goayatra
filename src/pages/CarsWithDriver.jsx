@@ -7,26 +7,29 @@ import { chauffeurVehicles } from "@/data/vehicles";
 
 export default function CarsWithDriver() {
   return (
-    <main data-testid="cars-with-driver-page" className="pt-24 md:pt-28">
-      {/* Editorial header (inline, no colored banner) */}
+    <main data-testid="cars-with-driver-page" className="pt-28 md:pt-36 bg-[#FFF8F2] text-[#493129]">
+      {/* Header */}
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-16 md:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
           <div className="md:col-span-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-badge bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] text-xs font-semibold uppercase tracking-wider mb-3">
+              Relaxed Chauffeur Rides
+            </div>
             <Reveal
               as="h1"
-              className="mt-4 font-display leading-[1.02] tracking-tight text-ink text-6xl md:text-7xl lg:text-[7vw]"
+              className="font-display font-bold leading-[1.05] tracking-tight text-[#493129] text-5xl md:text-6xl lg:text-7xl"
             >
-              Cars with <em className="italic text-maroon font-normal">drivers.</em>
+              Chauffeur Cars &amp; Experienced <span className="text-[#8B597B]">Local Drivers</span>
             </Reveal>
           </div>
           <div className="md:col-span-4">
             <Reveal delay={0.1}>
-              <div className="border-t border-gold pt-4">
-                <p className="overline">Rate window</p>
-                <p className="mt-2 text-lg text-ink">
-                  Price valid <span className="text-maroon">3rd Jan – 28th Dec 2026</span>
+              <div className="brand-card bg-white p-6 rounded-[24px] shadow-card border border-[#F0DED2]">
+                <p className="text-xs font-semibold text-[#8B597B] uppercase tracking-wider">Rate Window</p>
+                <p className="mt-1 font-bold text-[#493129] font-body text-base">
+                  Standard Rate Sheet 2026
                 </p>
-                <p className="mt-2 text-sm text-ink-muted">
+                <p className="mt-1 text-xs text-[#856A63] font-body">
                   Sedan · Ertiga · Innova · Crysta · Hycross
                 </p>
               </div>
@@ -36,18 +39,18 @@ export default function CarsWithDriver() {
       </section>
 
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 space-y-16 md:space-y-24">
-        {/* Fleet grid — 5 chauffeur categories, each links to its own detail page */}
+        {/* Fleet grid — 5 chauffeur categories */}
         <section
           data-testid="chauffeur-fleet-grid"
-          className="border-t border-hairline pt-10 md:pt-16"
+          className="border-t border-[#F0DED2] pt-10 md:pt-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-10">
             <div className="md:col-span-12">
-              <h2 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
-                The <em className="italic text-maroon font-normal">line-up.</em>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#493129] tracking-tight">
+                The Chauffeur <span className="text-[#8B597B]">Line-Up</span>
               </h2>
-              <p className="mt-3 text-sm text-ink-muted max-w-md">
-                Five packages — tap any card for cabin photos, specs and the full price sheet.
+              <p className="mt-2 text-base text-[#6D4F47] font-body max-w-md">
+                Five packages — select any card for cabin details, specs and full price sheet.
               </p>
             </div>
           </div>
@@ -64,7 +67,7 @@ export default function CarsWithDriver() {
             name={t.name}
             tagline={t.tagline}
             rows={t.rows}
-            waMessage={`Hi Goa Yatra, I'd like to enquire about the ${t.name} chauffeur package.`}
+            waMessage={`Hi Goa Yatra! I'd like to enquire about the ${t.name} chauffeur package.`}
             testId={`chauffeur-${t.id}`}
           />
         ))}
@@ -72,50 +75,47 @@ export default function CarsWithDriver() {
         {/* Driver night overtime */}
         <section
           data-testid="driver-night"
-          className="border-t border-hairline pt-10 md:pt-16"
+          className="border-t border-[#F0DED2] pt-10 md:pt-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-8">
             <div className="md:col-span-12">
-              <h3 className="font-display text-4xl md:text-5xl text-ink tracking-tight">
-                Driver night — <em className="italic text-maroon font-normal">compulsory overtime</em>
+              <h3 className="font-display text-4xl md:text-5xl font-bold text-[#493129] tracking-tight">
+                Driver Night — <span className="text-[#8B597B]">Overtime Allowance</span>
               </h3>
-              <p className="mt-3 text-sm text-ink-muted max-w-md">
-                Applies when the driver stays on with you past 8:00 pm.
+              <p className="mt-2 text-base text-[#6D4F47] font-body max-w-md">
+                Applies when the driver stays on past 8:00 pm.
               </p>
             </div>
           </div>
-          <Reveal className="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0">
-            <table className="goa-table min-w-[520px] max-w-2xl">
-              <thead>
-                <tr>
-                  <th>Slot</th>
-                  <th>Charge</th>
-                </tr>
-              </thead>
-              <tbody>
-                {driverNight.map((r) => (
-                  <tr key={r.slot}>
-                    <td>{r.slot}</td>
-                    <td className="price">{r.charge}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <Reveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl">
+              {driverNight.map((r) => (
+                <div
+                  key={r.slot}
+                  className="bg-white rounded-[20px] p-6 border border-[#F0DED2] shadow-card flex items-center justify-between"
+                >
+                  <div>
+                    <span className="text-xs uppercase font-bold text-[#856A63]">Overtime Slot</span>
+                    <p className="font-heading font-bold text-base text-[#493129] mt-1">{r.slot}</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-heading font-extrabold text-2xl text-[#8B597B]">{r.charge}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Reveal>
         </section>
       </section>
 
       <CTABand
-        eyebrow="Same number, every car"
-        headline={
-          <>
-            Which car <em className="italic text-maroon font-normal">fits your day?</em>
-          </>
-        }
-        sub="Tell us your route, we'll tell you the sharpest package."
-        waMsg="Hi Goa Yatra, I need a chauffeur-driven car — could you recommend a package?"
+        eyebrow="Direct Reservation"
+        headline="Which car fits your day in Goa?"
+        sub="Tell us your route, we'll recommend the ideal package instantly."
+        waMsg="Hi Goa Yatra! I need a chauffeur-driven car — could you recommend a package?"
         testId="chauffeur-cta-band"
       />
     </main>
   );
 }
+

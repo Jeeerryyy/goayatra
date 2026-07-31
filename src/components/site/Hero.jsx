@@ -1,128 +1,98 @@
 import { motion } from "framer-motion";
 import { CallButton, WhatsAppButton } from "./CTAButtons";
-import { ease, maskLine } from "@/lib/motion";
+import { ease } from "@/lib/motion";
 import { BRAND } from "@/lib/site";
+import { Sparkles, MapPin, Sun, ShieldCheck, Waves, Compass } from "lucide-react";
 
-/**
- * Signature on-load hero:
- * - Metadata overline slides in
- * - Massive editorial headline reveals line-by-line, mask-clipped
- * - Right-column spotlight photograph fades in with subtle parallax hint
- * - Persistent Call + WhatsApp CTAs
- */
 export default function Hero() {
-  const lines = ["Cars with drivers,", "and drivers who", "actually know Goa."];
-
   return (
     <section
       data-testid="hero"
-      className="relative pt-24 md:pt-28 pb-10 md:pb-14"
+      className="relative pt-24 md:pt-32 pb-12 md:pb-16 overflow-hidden min-h-[55vh] flex items-center justify-center text-center bg-[#FFF3EB] border-b border-[#F0DED2]"
     >
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-        {/* Copy column */}
-        <div className="lg:col-span-8">
-          <h1 className="font-display text-ink tracking-tight leading-[1.04] text-[9vw] sm:text-[6.5vw] lg:text-[4.8vw]">
-            {lines.map((ln, i) => (
-              <span key={i} className="mask-line">
-                <motion.span
-                  className="block"
-                  variants={maskLine}
-                  initial="hidden"
-                  animate="visible"
-                  custom={i}
-                >
-                  {i === 1 ? (
-                    <span>
-                      and drivers who
-                    </span>
-                  ) : i === 2 ? (
-                    <span>
-                      actually{" "}
-                      <span className="italic text-maroon">know</span>{" "}
-                      Goa.
-                    </span>
-                  ) : (
-                    ln
-                  )}
-                </motion.span>
-              </span>
-            ))}
-          </h1>
+      {/* Crisp Sunset Beach Background Image Layer */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80"
+          alt="Goa Sunset Beach Background"
+          className="w-full h-full object-cover opacity-85 filter contrast-[1.05]"
+        />
+        {/* Crisp subtle overlay for perfect text legibility without obscuring the image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8F2]/60 via-[#FFF3EB]/45 to-[#FFF8F2]/85" />
+      </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.7 }}
-            className="mt-6 max-w-xl text-base md:text-lg text-ink leading-relaxed"
-          >
-            {BRAND.positioning} No booking engine, no forms, no waiting. Tap
-            <span className="text-maroon"> Call </span>
-            or
-            <span className="text-maroon"> WhatsApp </span>— a real person
-            answers, a real quote follows.
-          </motion.p>
+      {/* Direct Content Overlay */}
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 md:px-10 relative z-10 flex flex-col items-center">
+        {/* Main Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease }}
+          className="font-display text-[#493129] text-3xl sm:text-5xl md:text-[54px] lg:text-[60px] font-bold leading-[1.1] sm:leading-[1.08] tracking-tight max-w-4xl"
+        >
+          Your Beach &amp; Road Trip <br className="hidden sm:inline" />
+          Starts Here in <span className="text-[#8B597B] italic">Goa</span>
+        </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.9 }}
-            className="mt-6 flex flex-wrap gap-3"
-          >
-            <CallButton label="Call +91 7249216623" size="lg" testId="hero-call" />
-            <WhatsAppButton
-              label="WhatsApp us"
-              size="lg"
-              message="Hi Goa Yatra, I'd like a quick quote for a car."
-              testId="hero-whatsapp"
-            />
-          </motion.div>
+        {/* Body Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.15 }}
+          className="mt-3 sm:mt-4 max-w-2xl text-base md:text-lg text-[#6D4F47] font-body leading-relaxed"
+        >
+          Explore Goa with ease. Whether you need a self-drive car for coastal drives, a seamless airport transfer, or a Tempo Traveller for group travel, we deliver refined, transparent service.
+        </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease, delay: 1.1 }}
-            className="mt-8 grid grid-cols-2 max-w-xs text-[11px] tracking-[0.22em] uppercase text-ink-muted"
-          >
-            <div className="pt-3">
-              <div className="text-ink font-display text-2xl leading-none">24/7</div>
-              <div className="mt-2">Dispatch</div>
-            </div>
-            <div className="pt-3 pl-4">
-              <div className="text-ink font-display text-2xl leading-none">13+</div>
-              <div className="mt-2">Vehicles</div>
-            </div>
-          </motion.div>
-        </div>
+        {/* Action CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.3 }}
+          className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto"
+        >
+          <WhatsAppButton
+            label="Book Your Ride"
+            size="md"
+            message="Hi Goa Yatra! I'd like to book a car."
+            testId="hero-whatsapp"
+            className="btn-primary text-sm sm:text-base font-semibold px-6 py-3 rounded-xl w-full sm:w-auto justify-center"
+          />
+          <CallButton
+            label="Call +91 7249216623"
+            size="md"
+            testId="hero-call"
+            className="btn-secondary text-sm sm:text-base font-semibold px-6 py-3 rounded-xl w-full sm:w-auto justify-center"
+          />
+        </motion.div>
 
-        {/* Spotlight photograph */}
-        <SpotlightImage />
+        {/* Quick Value Props Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease, delay: 0.45 }}
+          className="mt-8 grid grid-cols-1 sm:grid-cols-3 w-full max-w-2xl text-[#493129] font-body gap-4 bg-white/90 backdrop-blur-md p-5 rounded-[20px] shadow-soft border border-[#F0DED2]"
+        >
+          <div className="flex flex-col items-center">
+            <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#493129]">24 / 7</span>
+            <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Airport Transfers</span>
+          </div>
+          <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#F0DED2] pt-3 sm:pt-0">
+            <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#8B597B]">100%</span>
+            <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Verified Fleet</span>
+          </div>
+          <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#F0DED2] pt-3 sm:pt-0">
+            <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#493129]">0</span>
+            <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Hidden Fees</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-function SpotlightImage() {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.4, ease, delay: 0.4 }}
-      className="lg:col-span-4 relative"
-    >
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-lg">
-        <motion.img
-          src="https://images.unsplash.com/photo-1638217989553-e6d87c341f68?auto=format&fit=crop&w=1200&q=80"
-          alt="Palm-fringed Goa coast"
-          className="absolute inset-0 h-full w-full object-cover"
-          initial={{ scale: 1.08, y: 20 }}
-          animate={{ scale: 1, y: 0 }}
-          transition={{ duration: 2.2, ease }}
-        />
-      </div>
-      <div className="mt-3 flex items-center justify-between text-[11px] tracking-wider text-ink-muted">
-        <span>Goa Coastline</span>
-        <span>Goa, India</span>
-      </div>
-    </motion.div>
-  );
-}
+
+
+
+
+
