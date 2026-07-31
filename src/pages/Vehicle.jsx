@@ -114,7 +114,8 @@ export default function Vehicle() {
 
   const waMsg = `Hi Goa Yatra! I'd like to enquire about the ${v.name}.`;
 
-  const carImages = [v.images?.hero, v.images?.cabin, v.images?.exterior].filter(Boolean);
+  const rawCarImages = [v.images?.hero, v.images?.cabin, v.images?.exterior].filter(Boolean);
+  const carImages = Array.from(new Set(rawCarImages));
 
   return (
     <main data-testid={`vehicle-page-${v.slug}`} className="pt-28 md:pt-36 bg-[#FFF8F2] text-[#493129]">

@@ -32,7 +32,7 @@ export default function ReviewsWall() {
 
   // Duplicate reviews array to create seamless loop
   const marqueeReviewsRow1 = [...displayReviews, ...displayReviews, ...displayReviews];
-  const marqueeReviewsRow2 = [...reviews.slice().reverse(), ...reviews.slice().reverse(), ...reviews.slice().reverse()];
+  const marqueeReviewsRow2 = [...displayReviews.slice().reverse(), ...displayReviews.slice().reverse(), ...displayReviews.slice().reverse()];
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev >= displayReviews.length - 1 ? 0 : prev + 1));

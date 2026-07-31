@@ -14,7 +14,7 @@ export default function GroupTravel() {
     name: "Tempo Traveller",
     seats: "12 – 17 Seats",
     tagline: "Spacious AC group cruiser ideal for large families & friend groups",
-    image: "/images/cars/tempo-traveller.jpg",
+    image: "/images/cars/tempo.png",
     extraKm: "₹40/km",
     extraHr: "₹400/hr",
     rows: [

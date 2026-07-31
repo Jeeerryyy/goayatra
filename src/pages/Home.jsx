@@ -32,10 +32,10 @@ export default function Home() {
   ];
 
   const galleryImages = [
-    { url: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80", caption: "Open Coastline Road Trip" },
-    { url: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80", caption: "Goa Sunset Beach Vibes" },
-    { url: "https://images.unsplash.com/photo-1583267746897-2cf415887172?auto=format&fit=crop&w=800&q=80", caption: "Convertible & Friends" },
-    { url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80", caption: "Golden Hour Palms" },
+    { url: "/images/cars/thar.png", caption: "Mahindra Thar 4x4 Coastal Drive" },
+    { url: "/images/cars/crysta.png", caption: "Innova Crysta Family Sunset Cruise" },
+    { url: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1000&q=80", caption: "Scenic Coastline Beach Road" },
+    { url: "/images/cars/tempo.png", caption: "Group Excursion in Tempo Traveller" },
   ];
 
   const faqs = [
