@@ -83,7 +83,7 @@ export default function Home() {
             to="/fleet"
             className="btn btn-secondary inline-flex items-center justify-center gap-2 text-sm w-full sm:w-auto"
           >
-            <span>View Full Fleet (18+ Cars)</span>
+            <span>View More Cars</span>
             <ArrowUpRight size={18} />
           </Link>
         </div>
