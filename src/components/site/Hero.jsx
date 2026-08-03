@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       data-testid="hero"
-      className="relative pt-24 md:pt-32 pb-12 md:pb-16 overflow-hidden min-h-[60vh] flex items-center justify-center text-center bg-[#FFF3EB] border-b border-[#F0DED2]"
+      className="relative pt-24 md:pt-32 pb-12 md:pb-16 overflow-hidden min-h-[60vh] flex items-center justify-center text-center bg-[#F5F3EE] border-b border-[#E8E4DC]"
     >
       {/* 3D Moving Ocean Waves Animation Layer */}
       <OceanWave3DAnimation className="opacity-95" />
@@ -31,7 +31,7 @@ export default function Hero() {
           className="w-full h-full object-cover opacity-65 filter contrast-[1.08]"
         />
         {/* Crisp subtle overlay for perfect text legibility without obscuring the image */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8F2]/50 via-[#FFF3EB]/35 to-[#FFF8F2]/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAFAF8]/50 via-[#F5F3EE]/35 to-[#FAFAF8]/75" />
       </div>
 
       {/* Direct Content Overlay */}
@@ -41,10 +41,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease }}
-          className="font-display text-[#493129] text-3xl sm:text-5xl md:text-[54px] lg:text-[60px] font-bold leading-[1.1] sm:leading-[1.08] tracking-tight max-w-4xl"
+          className="font-display text-[#1A1A1A] text-3xl sm:text-5xl md:text-[54px] lg:text-[60px] font-bold leading-[1.1] sm:leading-[1.08] tracking-tight max-w-4xl"
         >
           Your Beach &amp; Road Trip <br className="hidden sm:inline" />
-          Starts Here in <span className="text-[#8B597B] italic">Goa</span>
+          Starts Here in <span className="text-[#C49A3C] italic">Goa</span>
         </motion.h1>
 
         {/* Body Subtitle */}
@@ -52,7 +52,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.15 }}
-          className="mt-3 sm:mt-4 max-w-2xl text-base md:text-lg text-[#6D4F47] font-body leading-relaxed"
+          className="mt-3 sm:mt-4 max-w-2xl text-base md:text-lg text-[#4A4A4A] font-body leading-relaxed"
         >
           Explore Goa with ease. Whether you need a self-drive car for coastal drives, a seamless airport transfer, or a Tempo Traveller for group travel, we deliver refined, transparent service.
         </motion.p>
@@ -87,18 +87,18 @@ export default function Hero() {
           className="mt-8 w-full max-w-2xl"
         >
           <ThreeDTiltCard maxTilt={6} scale={1.03} className="rounded-[20px]">
-            <div className="grid grid-cols-1 sm:grid-cols-3 w-full text-[#493129] font-body gap-4 bg-white/90 backdrop-blur-md p-5 rounded-[20px] shadow-large border border-[#F0DED2]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 w-full text-[#1A1A1A] font-body gap-4 bg-white/90 backdrop-blur-md p-5 rounded-[20px] shadow-large border border-[#E8E4DC]">
               <div className="flex flex-col items-center">
-                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#493129]">24 / 7</span>
-                <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Airport Transfers</span>
+                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#1A1A1A]">24 / 7</span>
+                <span className="text-[11px] text-[#6B6B6B] font-semibold mt-0.5 uppercase tracking-wider">Airport Transfers</span>
               </div>
-              <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#F0DED2] pt-3 sm:pt-0">
-                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#8B597B]">100%</span>
-                <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Verified Fleet</span>
+              <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#E8E4DC] pt-3 sm:pt-0">
+                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#C49A3C]">100%</span>
+                <span className="text-[11px] text-[#6B6B6B] font-semibold mt-0.5 uppercase tracking-wider">Verified Fleet</span>
               </div>
-              <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#F0DED2] pt-3 sm:pt-0">
-                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#493129]">0</span>
-                <span className="text-[11px] text-[#856A63] font-semibold mt-0.5 uppercase tracking-wider">Hidden Fees</span>
+              <div className="flex flex-col items-center border-t sm:border-t-0 sm:border-l border-[#E8E4DC] pt-3 sm:pt-0">
+                <span className="font-heading font-extrabold text-2xl md:text-3xl text-[#1A1A1A]">0</span>
+                <span className="text-[11px] text-[#6B6B6B] font-semibold mt-0.5 uppercase tracking-wider">Hidden Fees</span>
               </div>
             </div>
           </ThreeDTiltCard>

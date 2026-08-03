@@ -15,9 +15,9 @@ export default function Floating3DElements() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute top-28 left-[6%] hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-badge bg-white/85 backdrop-blur-md border border-[#F0DED2] shadow-large text-xs font-bold text-[#493129]"
+        className="absolute top-28 left-[6%] hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-badge bg-white/85 backdrop-blur-md border border-[#E8E4DC] shadow-large text-xs font-bold text-[#1A1A1A]"
       >
-        <div className="h-7 w-7 rounded-full bg-[#8B597B]/15 text-[#8B597B] flex items-center justify-center">
+        <div className="h-7 w-7 rounded-full bg-[#C49A3C]/15 text-[#C49A3C] flex items-center justify-center">
           <Sun size={16} />
         </div>
         <span>Sunny Goa Drives</span>
@@ -35,9 +35,9 @@ export default function Floating3DElements() {
           ease: "easeInOut",
           delay: 0.5,
         }}
-        className="absolute top-32 right-[7%] hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-badge bg-white/85 backdrop-blur-md border border-[#F0DED2] shadow-large text-xs font-bold text-[#493129]"
+        className="absolute top-32 right-[7%] hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-badge bg-white/85 backdrop-blur-md border border-[#E8E4DC] shadow-large text-xs font-bold text-[#1A1A1A]"
       >
-        <div className="h-7 w-7 rounded-full bg-[#8B597B]/15 text-[#8B597B] flex items-center justify-center">
+        <div className="h-7 w-7 rounded-full bg-[#C49A3C]/15 text-[#C49A3C] flex items-center justify-center">
           <Waves size={16} />
         </div>
         <span>Beach Coastlines</span>
@@ -55,9 +55,9 @@ export default function Floating3DElements() {
           ease: "easeInOut",
           delay: 1,
         }}
-        className="absolute bottom-16 left-[8%] hidden xl:flex items-center gap-2.5 px-4 py-2.5 rounded-badge bg-white/85 backdrop-blur-md border border-[#F0DED2] shadow-large text-xs font-bold text-[#493129]"
+        className="absolute bottom-16 left-[8%] hidden xl:flex items-center gap-2.5 px-4 py-2.5 rounded-badge bg-white/85 backdrop-blur-md border border-[#E8E4DC] shadow-large text-xs font-bold text-[#1A1A1A]"
       >
-        <div className="h-7 w-7 rounded-full bg-[#8B597B]/15 text-[#8B597B] flex items-center justify-center">
+        <div className="h-7 w-7 rounded-full bg-[#C49A3C]/15 text-[#C49A3C] flex items-center justify-center">
           <Compass size={16} />
         </div>
         <span>24/7 Road Assistance</span>
@@ -75,9 +75,9 @@ export default function Floating3DElements() {
           ease: "easeInOut",
           delay: 1.5,
         }}
-        className="absolute bottom-20 right-[9%] hidden xl:flex items-center gap-2.5 px-4 py-2.5 rounded-badge bg-white/85 backdrop-blur-md border border-[#F0DED2] shadow-large text-xs font-bold text-[#493129]"
+        className="absolute bottom-20 right-[9%] hidden xl:flex items-center gap-2.5 px-4 py-2.5 rounded-badge bg-white/85 backdrop-blur-md border border-[#E8E4DC] shadow-large text-xs font-bold text-[#1A1A1A]"
       >
-        <div className="h-7 w-7 rounded-full bg-[#8B597B]/15 text-[#8B597B] flex items-center justify-center">
+        <div className="h-7 w-7 rounded-full bg-[#C49A3C]/15 text-[#C49A3C] flex items-center justify-center">
           <Sparkles size={16} />
         </div>
         <span>Transparent Pricing</span>

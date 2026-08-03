@@ -42,7 +42,7 @@ export default function OceanWave3DAnimation({ className = "" }) {
       speedX: (Math.random() - 0.5) * 0.8,
       speedY: -Math.random() * 0.7 - 0.2,
       opacity: Math.random() * 0.6 + 0.2,
-      color: Math.random() > 0.5 ? "255, 243, 235" : "139, 89, 123",
+      color: Math.random() > 0.5 ? "255, 243, 235" : "196, 154, 60",
       pulse: Math.random() * Math.PI * 2,
     }));
 
@@ -52,7 +52,7 @@ export default function OceanWave3DAnimation({ className = "" }) {
         amplitude: 22,
         wavelength: 0.008,
         speed: 0.025,
-        color: "rgba(139, 89, 123, 0.18)",
+        color: "rgba(196, 154, 60, 0.18)",
         yOffset: 0.55,
         foamColor: "rgba(255, 255, 255, 0.25)",
       },
@@ -68,7 +68,7 @@ export default function OceanWave3DAnimation({ className = "" }) {
         amplitude: 28,
         wavelength: 0.006,
         speed: 0.018,
-        color: "rgba(73, 49, 41, 0.12)",
+        color: "rgba(26, 26, 26, 0.12)",
         yOffset: 0.75,
         foamColor: "rgba(255, 255, 255, 0.35)",
       },
@@ -76,7 +76,7 @@ export default function OceanWave3DAnimation({ className = "" }) {
         amplitude: 15,
         wavelength: 0.015,
         speed: 0.045,
-        color: "rgba(139, 89, 123, 0.22)",
+        color: "rgba(196, 154, 60, 0.22)",
         yOffset: 0.85,
         foamColor: "rgba(255, 255, 255, 0.4)",
       },
@@ -123,7 +123,7 @@ export default function OceanWave3DAnimation({ className = "" }) {
         // Wave gradient fill
         const waveGrad = ctx.createLinearGradient(0, baseLineY - layer.amplitude, 0, height);
         waveGrad.addColorStop(0, layer.color);
-        waveGrad.addColorStop(1, "rgba(73, 49, 41, 0.05)");
+        waveGrad.addColorStop(1, "rgba(26, 26, 26, 0.05)");
 
         ctx.fillStyle = waveGrad;
         ctx.fill();

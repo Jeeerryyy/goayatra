@@ -42,7 +42,7 @@ export default function ThreeDBackground({ className = "" }) {
       vx: (Math.random() - 0.5) * 0.4,
       vy: (Math.random() - 0.5) * 0.4,
       vz: (Math.random() - 0.5) * 0.8,
-      color: Math.random() > 0.4 ? "rgba(139, 89, 123, " : "rgba(224, 142, 121, ",
+      color: Math.random() > 0.4 ? "rgba(196, 154, 60, " : "rgba(224, 142, 121, ",
       pulse: Math.random() * Math.PI * 2,
     }));
 
@@ -140,7 +140,7 @@ export default function ThreeDBackground({ className = "" }) {
             ctx.beginPath();
             ctx.moveTo(p1.px, p1.py);
             ctx.lineTo(p2.px, p2.py);
-            ctx.strokeStyle = `rgba(139, 89, 123, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(196, 154, 60, ${lineAlpha})`;
             ctx.stroke();
           }
         }
@@ -163,7 +163,7 @@ export default function ThreeDBackground({ className = "" }) {
         if (k === 0) ctx.moveTo(px, py);
         else ctx.lineTo(px, py);
       }
-      ctx.strokeStyle = `rgba(139, 89, 123, ${0.15 + Math.abs(mouseNormY) * 0.1})`;
+      ctx.strokeStyle = `rgba(196, 154, 60, ${0.15 + Math.abs(mouseNormY) * 0.1})`;
       ctx.stroke();
 
       ctx.restore();

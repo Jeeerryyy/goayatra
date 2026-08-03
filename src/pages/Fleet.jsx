@@ -19,17 +19,17 @@ export default function Fleet() {
       : vehicles;
 
   return (
-    <main data-testid="fleet-page" className="pt-28 md:pt-36 bg-[#FFF8F2] text-[#493129]">
+    <main data-testid="fleet-page" className="pt-28 md:pt-36 bg-[#FAFAF8] text-[#1A1A1A]">
       {/* Header */}
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-12 md:pb-16">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-badge bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] text-xs font-semibold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-badge bg-[#F5F3EE] text-[#C49A3C] border border-[#E8E4DC] text-xs font-semibold uppercase tracking-wider mb-3">
             Explore Goa Fleet
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-[#493129] tracking-tight leading-tight">
-            All Fleet &amp; <span className="text-[#8B597B]">Rental Packages</span>
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-[#1A1A1A] tracking-tight leading-tight">
+            All Fleet &amp; <span className="text-[#C49A3C]">Rental Packages</span>
           </h1>
-          <p className="mt-4 text-base md:text-lg text-[#6D4F47] font-body leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-[#4A4A4A] font-body leading-relaxed">
             Choose from self-drive hatchbacks, SUVs, luxury convertibles, or chauffeur-driven vehicles &amp; Tempo Travellers across Goa.
           </p>
         </div>
@@ -47,8 +47,8 @@ export default function Fleet() {
               onClick={() => setFilter(tab.id)}
               className={`px-6 py-3 rounded-badge text-sm font-semibold transition-all duration-300 shadow-soft ${
                 filter === tab.id
-                  ? "bg-[#493129] text-white"
-                  : "bg-white text-[#493129] hover:bg-[#FFF3EB] border border-[#F0DED2]"
+                  ? "bg-[#1A1A1A] text-white"
+                  : "bg-white text-[#1A1A1A] hover:bg-[#F5F3EE] border border-[#E8E4DC]"
               }`}
             >
               {tab.label}
@@ -67,15 +67,15 @@ export default function Fleet() {
       </section>
 
       {/* Detailed Charges & Rate Sheets */}
-      <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24 border-t border-[#F0DED2]">
+      <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-16 md:py-24 border-t border-[#E8E4DC]">
         <div className="mb-12">
-          <span className="px-3 py-1 rounded-badge bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] font-semibold text-xs uppercase tracking-wider">
+          <span className="px-3 py-1 rounded-badge bg-[#F5F3EE] text-[#C49A3C] border border-[#E8E4DC] font-semibold text-xs uppercase tracking-wider">
             Pricing Sheet
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#493129] tracking-tight mt-2">
-            Complete <span className="text-[#8B597B]">Rate Cards &amp; Charges</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A1A1A] tracking-tight mt-2">
+            Complete <span className="text-[#C49A3C]">Rate Cards &amp; Charges</span>
           </h2>
-          <p className="mt-2 text-base text-[#6D4F47] font-body max-w-lg">
+          <p className="mt-2 text-base text-[#4A4A4A] font-body max-w-lg">
             Flat transparent rates. No hidden fees or surprise surcharges.
           </p>
         </div>

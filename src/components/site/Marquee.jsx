@@ -10,7 +10,7 @@ export default function Marquee({ items = [], separator = "·", testId = "marque
   return (
     <section
       data-testid={testId}
-      className="relative overflow-hidden bg-[#FFF3EB] border-y border-[#F0DED2] py-5 select-none"
+      className="relative overflow-hidden bg-[#F5F3EE] border-y border-[#E8E4DC] py-5 select-none"
     >
       <motion.div
         className="flex whitespace-nowrap gap-8 w-max"
@@ -24,10 +24,10 @@ export default function Marquee({ items = [], separator = "·", testId = "marque
         {list.map((it, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-8 font-heading font-semibold text-2xl md:text-3xl text-[#493129]"
+            className="inline-flex items-center gap-8 font-heading font-semibold text-2xl md:text-3xl text-[#1A1A1A]"
           >
             <span>{it}</span>
-            {separator && <span className="text-[#8B597B] text-xl">{separator}</span>}
+            {separator && <span className="text-[#C49A3C] text-xl">{separator}</span>}
           </span>
         ))}
       </motion.div>

@@ -64,38 +64,38 @@ export default function ReviewsWall() {
   return (
     <section
       data-testid="reviews-wall"
-      className="py-16 md:py-24 bg-[#FFF8F2] overflow-hidden relative border-t border-[#F0DED2]"
+      className="py-16 md:py-24 bg-[#FAFAF8] overflow-hidden relative border-t border-[#E8E4DC]"
     >
       {/* Section Header */}
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 mb-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-badge bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] text-xs font-semibold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-badge bg-[#F5F3EE] text-[#C49A3C] border border-[#E8E4DC] text-xs font-semibold uppercase tracking-wider mb-3">
               Google Customer Reviews
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#493129] tracking-tight">
-              Real Experiences From <span className="text-[#8B597B]">Goa Travelers</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] tracking-tight">
+              Real Experiences From <span className="text-[#C49A3C]">Goa Travelers</span>
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-[#6D4F47] font-body max-w-lg">
+            <p className="mt-2 text-sm sm:text-base text-[#4A4A4A] font-body max-w-lg">
               Automatically scrolling Google reviews. Hover any card to pause and read.
             </p>
           </div>
 
           {/* Stats Summary Badge */}
-          <div className="flex items-center gap-4 bg-white rounded-badge px-6 py-4 border border-[#F0DED2] shadow-soft">
-            <div className="h-12 w-12 rounded-full bg-[#FFF3EB] flex items-center justify-center text-[#8B597B] shrink-0 border border-[#F0DED2]">
+          <div className="flex items-center gap-4 bg-white rounded-badge px-6 py-4 border border-[#E8E4DC] shadow-soft">
+            <div className="h-12 w-12 rounded-full bg-[#F5F3EE] flex items-center justify-center text-[#C49A3C] shrink-0 border border-[#E8E4DC]">
               <GoogleGlyph size={24} />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-heading text-2xl font-bold text-[#493129]">{reviewsMeta.avg}</span>
+                <span className="font-heading text-2xl font-bold text-[#1A1A1A]">{reviewsMeta.avg}</span>
                 <div className="flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} size={15} className="text-[#8B597B] fill-[#8B597B]" />
+                    <Star key={k} size={15} className="text-[#C49A3C] fill-[#C49A3C]" />
                   ))}
                 </div>
               </div>
-              <p className="text-xs text-[#856A63] mt-0.5 font-semibold font-body">
+              <p className="text-xs text-[#6B6B6B] mt-0.5 font-semibold font-body">
                 {reviewsMeta.count} Verified Google &amp; Direct Reviews
               </p>
             </div>
@@ -106,41 +106,41 @@ export default function ReviewsWall() {
       {/* CONTINUOUS AUTOMATIC SCROLLING MARQUEE TRACK (SINGLE ROW) */}
       <div className="relative w-full overflow-hidden mb-12 py-2">
         {/* Soft edge blur gradient */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#FFF8F2] to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FFF8F2] to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#FAFAF8] to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAFAF8] to-transparent z-10" />
 
         <div className="animate-marquee-loop gap-4 sm:gap-6 flex items-center">
           {marqueeReviewsRow1.map((item, idx) => (
             <ThreeDTiltCard key={`${item.id}-${idx}`} maxTilt={6} scale={1.02} className="shrink-0 w-[290px] sm:w-[380px] rounded-[24px]">
-              <div className="bg-white p-6 rounded-[24px] border border-[#F0DED2] shadow-card hover:shadow-cardHover transition-all duration-300 flex flex-col justify-between h-[230px]">
+              <div className="bg-white p-6 rounded-[24px] border border-[#E8E4DC] shadow-card hover:shadow-cardHover transition-all duration-300 flex flex-col justify-between h-[230px]">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <div className="flex gap-0.5">
                       {Array.from({ length: item.rating || 5 }).map((_, k) => (
-                        <Star key={k} size={14} className="text-[#8B597B] fill-[#8B597B]" />
+                        <Star key={k} size={14} className="text-[#C49A3C] fill-[#C49A3C]" />
                       ))}
                     </div>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#493129] bg-[#FFF3EB] px-2.5 py-1 rounded-badge border border-[#F0DED2]">
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#1A1A1A] bg-[#F5F3EE] px-2.5 py-1 rounded-badge border border-[#E8E4DC]">
                       <GoogleGlyph size={12} />
                       <span>{item.source || "Google"}</span>
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#493129] font-body line-clamp-3 leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#1A1A1A] font-body line-clamp-3 leading-relaxed font-medium">
                     &ldquo;{item.text}&rdquo;
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#F0DED2] flex items-center justify-between">
+                <div className="pt-3 border-t border-[#E8E4DC] flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="h-9 w-9 rounded-full bg-[#493129] text-white font-heading text-xs font-bold flex items-center justify-center">
+                    <div className="h-9 w-9 rounded-full bg-[#1A1A1A] text-white font-heading text-xs font-bold flex items-center justify-center">
                       {item.initials || item.name?.slice(0, 2) || "GY"}
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-[#493129] font-body">{item.name}</h4>
-                      <p className="text-[11px] text-[#856A63] font-body">{item.vehicle}</p>
+                      <h4 className="text-xs font-bold text-[#1A1A1A] font-body">{item.name}</h4>
+                      <p className="text-[11px] text-[#6B6B6B] font-body">{item.vehicle}</p>
                     </div>
                   </div>
-                  <span className="text-[10px] text-[#856A63] font-semibold">{item.date}</span>
+                  <span className="text-[10px] text-[#6B6B6B] font-semibold">{item.date}</span>
                 </div>
               </div>
             </ThreeDTiltCard>
@@ -150,8 +150,8 @@ export default function ReviewsWall() {
 
       {/* FEATURED REVIEW SPOTLIGHT SLIDER */}
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10">
-        <div className="relative bg-white rounded-[24px] p-6 sm:p-8 md:p-12 border border-[#F0DED2] shadow-large">
-          <Quote size={44} className="text-[#8B597B]/15 absolute top-6 right-6 sm:top-8 sm:right-8" />
+        <div className="relative bg-white rounded-[24px] p-6 sm:p-8 md:p-12 border border-[#E8E4DC] shadow-large">
+          <Quote size={44} className="text-[#C49A3C]/15 absolute top-6 right-6 sm:top-8 sm:right-8" />
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -166,33 +166,33 @@ export default function ReviewsWall() {
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex gap-0.5">
                     {Array.from({ length: currentReview.rating || 5 }).map((_, k) => (
-                      <Star key={k} size={18} className="text-[#8B597B] fill-[#8B597B]" />
+                      <Star key={k} size={18} className="text-[#C49A3C] fill-[#C49A3C]" />
                     ))}
                   </div>
-                  <span className="text-xs font-semibold text-[#8B597B] uppercase tracking-wider ml-2">
+                  <span className="text-xs font-semibold text-[#C49A3C] uppercase tracking-wider ml-2">
                     Featured Review
                   </span>
                 </div>
 
-                <p className="font-display font-medium text-lg sm:text-2xl text-[#493129] leading-relaxed max-w-4xl">
+                <p className="font-display font-medium text-lg sm:text-2xl text-[#1A1A1A] leading-relaxed max-w-4xl">
                   &ldquo;{currentReview.text}&rdquo;
                 </p>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-[#F0DED2] flex flex-wrap items-center justify-between gap-4">
+              <div className="mt-6 pt-6 border-t border-[#E8E4DC] flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
-                  <div className="h-11 w-11 rounded-full bg-[#493129] text-white font-heading text-lg font-bold flex items-center justify-center shadow-soft">
+                  <div className="h-11 w-11 rounded-full bg-[#1A1A1A] text-white font-heading text-lg font-bold flex items-center justify-center shadow-soft">
                     {currentReview.initials || currentReview.name?.slice(0, 2) || "GY"}
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-[#493129] font-body">{currentReview.name}</h4>
-                    <p className="text-xs text-[#856A63] font-body">
-                      {currentReview.date} · <span className="text-[#8B597B] font-semibold">{currentReview.vehicle}</span>
+                    <h4 className="text-base font-bold text-[#1A1A1A] font-body">{currentReview.name}</h4>
+                    <p className="text-xs text-[#6B6B6B] font-body">
+                      {currentReview.date} · <span className="text-[#C49A3C] font-semibold">{currentReview.vehicle}</span>
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#493129] bg-[#FFF3EB] px-3.5 py-1.5 rounded-badge border border-[#F0DED2]">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#1A1A1A] bg-[#F5F3EE] px-3.5 py-1.5 rounded-badge border border-[#E8E4DC]">
                   <GoogleGlyph size={16} />
                   <span>Verified Google Review</span>
                 </div>
@@ -201,7 +201,7 @@ export default function ReviewsWall() {
           </AnimatePresence>
 
           {/* Controls bar */}
-          <div className="mt-6 pt-4 border-t border-[#F0DED2] flex items-center justify-between">
+          <div className="mt-6 pt-4 border-t border-[#E8E4DC] flex items-center justify-between">
             <div className="flex items-center gap-2">
               {displayReviews.map((_, idx) => (
                 <button
@@ -209,7 +209,7 @@ export default function ReviewsWall() {
                   onClick={() => setCurrentIndex(idx)}
                   aria-label={`View review ${idx + 1}`}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    idx === currentIndex ? "w-8 bg-[#8B597B]" : "w-2.5 bg-[#493129]/20 hover:bg-[#493129]/40"
+                    idx === currentIndex ? "w-8 bg-[#C49A3C]" : "w-2.5 bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40"
                   }`}
                 />
               ))}
@@ -218,7 +218,7 @@ export default function ReviewsWall() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setIsPaused(!isPaused)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-badge border border-[#F0DED2] bg-[#FFF8F2] text-xs font-semibold text-[#493129] hover:bg-[#FFF3EB] transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-badge border border-[#E8E4DC] bg-[#FAFAF8] text-xs font-semibold text-[#1A1A1A] hover:bg-[#F5F3EE] transition-colors"
               >
                 {isPaused ? <Play size={13} /> : <Pause size={13} />}
                 <span>{isPaused ? "Play Auto-Scroll" : "Pause Auto-Scroll"}</span>
@@ -227,14 +227,14 @@ export default function ReviewsWall() {
               <button
                 onClick={prevSlide}
                 aria-label="Previous review"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#F0DED2] bg-[#FFF8F2] hover:bg-[#8B597B] hover:text-white transition-colors text-[#493129]"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#E8E4DC] bg-[#FAFAF8] hover:bg-[#C49A3C] hover:text-white transition-colors text-[#1A1A1A]"
               >
                 <ChevronLeft size={18} />
               </button>
               <button
                 onClick={nextSlide}
                 aria-label="Next review"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#F0DED2] bg-[#FFF8F2] hover:bg-[#8B597B] hover:text-white transition-colors text-[#493129]"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#E8E4DC] bg-[#FAFAF8] hover:bg-[#C49A3C] hover:text-white transition-colors text-[#1A1A1A]"
               >
                 <ChevronRight size={18} />
               </button>

@@ -23,11 +23,11 @@ function Site() {
   const isAdminRoute = pathname === "/admin";
 
   return (
-    <div className="relative min-h-screen bg-[#FFF8F2] text-[#493129] font-body selection:bg-[#8B597B] selection:text-white">
+    <div className="relative min-h-screen bg-[#FAFAF8] text-[#1A1A1A] font-body selection:bg-[#C49A3C] selection:text-white">
       {/* Global Soft Sunset Background Ambient Glow */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#F8DCC7]/20 rounded-full filter blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#EFA3A0]/15 rounded-full filter blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#F5EEDF]/20 rounded-full filter blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#E8D5A3]/15 rounded-full filter blur-3xl pointer-events-none" />
       </div>
 
       <div className="relative z-10">

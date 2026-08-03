@@ -8,75 +8,75 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Sunset Color Palette v2.0
+        // Black & Gold Logo Palette
         brown: {
-          DEFAULT: "#493129",
-          hover: "#3C2721",
-          light: "#6D4F47",
-          muted: "#856A63",
+          DEFAULT: "#1A1A1A",
+          hover: "#000000",
+          light: "#4A4A4A",
+          muted: "#6B6B6B",
         },
         plum: {
-          DEFAULT: "#8B597B",
-          hover: "#754A66",
+          DEFAULT: "#C49A3C",
+          hover: "#A6802E",
         },
         pink: {
-          DEFAULT: "#EFA3A0",
+          DEFAULT: "#E8D5A3",
         },
         peach: {
-          DEFAULT: "#F8DCC7",
+          DEFAULT: "#F5EEDF",
         },
         
-        // Backward-compatible semantic aliases mapped to Sunset Palette
+        // Backward-compatible semantic aliases mapped to Logo Palette
         navy: {
-          DEFAULT: "#493129",
-          deep: "#3C2721",
-          light: "#6D4F47",
+          DEFAULT: "#1A1A1A",
+          deep: "#000000",
+          light: "#4A4A4A",
         },
         orange: {
-          DEFAULT: "#493129",
-          hover: "#3C2721",
-          soft: "#FFF3EB",
+          DEFAULT: "#1A1A1A",
+          hover: "#000000",
+          soft: "#F5F3EE",
         },
         yellow: {
-          DEFAULT: "#8B597B",
-          soft: "#F8DCC7",
+          DEFAULT: "#C49A3C",
+          soft: "#F5EEDF",
         },
         teal: {
-          DEFAULT: "#8B597B",
-          soft: "#FFF3EB",
+          DEFAULT: "#C49A3C",
+          soft: "#F5F3EE",
         },
         sand: {
-          DEFAULT: "#FFF8F2",
-          muted: "#FFF3EB",
+          DEFAULT: "#FAFAF8",
+          muted: "#F5F3EE",
         },
         
         // Semantic mappings
         bg: {
-          DEFAULT: "#FFF8F2",
-          alt: "#FFF3EB",
+          DEFAULT: "#FAFAF8",
+          alt: "#F5F3EE",
           card: "#FFFFFF",
         },
         ink: {
-          DEFAULT: "#493129",
-          muted: "#856A63",
+          DEFAULT: "#1A1A1A",
+          muted: "#6B6B6B",
           inverse: "#FFFFFF",
         },
-        whatsapp: "#493129",
-        hairline: "#F0DED2",
+        whatsapp: "#1A1A1A",
+        hairline: "#E8E4DC",
 
         // Shadcn compatibility tokens
-        background: "#FFF8F2",
-        foreground: "#493129",
-        border: "#F0DED2",
-        input: "#F0DED2",
-        ring: "#8B597B",
-        card: { DEFAULT: "#FFFFFF", foreground: "#493129" },
-        popover: { DEFAULT: "#FFFFFF", foreground: "#493129" },
-        primary: { DEFAULT: "#493129", foreground: "#FFFFFF" },
-        secondary: { DEFAULT: "#8B597B", foreground: "#FFFFFF" },
-        muted: { DEFAULT: "#FFF3EB", foreground: "#856A63" },
-        accent: { DEFAULT: "#EFA3A0", foreground: "#493129" },
-        destructive: { DEFAULT: "#8B597B", foreground: "#FFFFFF" },
+        background: "#FAFAF8",
+        foreground: "#1A1A1A",
+        border: "#E8E4DC",
+        input: "#E8E4DC",
+        ring: "#C49A3C",
+        card: { DEFAULT: "#FFFFFF", foreground: "#1A1A1A" },
+        popover: { DEFAULT: "#FFFFFF", foreground: "#1A1A1A" },
+        primary: { DEFAULT: "#1A1A1A", foreground: "#FFFFFF" },
+        secondary: { DEFAULT: "#C49A3C", foreground: "#FFFFFF" },
+        muted: { DEFAULT: "#F5F3EE", foreground: "#6B6B6B" },
+        accent: { DEFAULT: "#E8D5A3", foreground: "#1A1A1A" },
+        destructive: { DEFAULT: "#C49A3C", foreground: "#FFFFFF" },
       },
       fontFamily: {
         display: ["'Playfair Display'", "'Plus Jakarta Sans'", "sans-serif"],
@@ -94,10 +94,10 @@ module.exports = {
         sm: "8px",
       },
       boxShadow: {
-        soft: "0 8px 24px rgba(73,49,41,0.06)",
-        large: "0 20px 40px rgba(73,49,41,0.09)",
-        card: "0 8px 24px rgba(73,49,41,0.06)",
-        cardHover: "0 16px 36px rgba(73,49,41,0.10)",
+        soft: "0 8px 24px rgba(26,26,26,0.06)",
+        large: "0 20px 40px rgba(26,26,26,0.09)",
+        card: "0 8px 24px rgba(26,26,26,0.06)",
+        cardHover: "0 16px 36px rgba(26,26,26,0.10)",
       },
       keyframes: {
         "accordion-down": {

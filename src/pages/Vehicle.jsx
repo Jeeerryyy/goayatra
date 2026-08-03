@@ -35,7 +35,7 @@ function CarImageCarousel({ images, carName }) {
   }, [images.length]);
 
   return (
-    <div className="relative rounded-[24px] overflow-hidden bg-white border border-[#F0DED2] shadow-large aspect-[4/3] md:aspect-[16/11]">
+    <div className="relative rounded-[24px] overflow-hidden bg-white border border-[#E8E4DC] shadow-large aspect-[4/3] md:aspect-[16/11]">
       <AnimatePresence mode="wait">
         <motion.img
           key={currentIndex}
@@ -52,14 +52,14 @@ function CarImageCarousel({ images, carName }) {
       {/* Navigation Controls */}
       <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
         {/* Pagination Indicators */}
-        <div className="flex items-center gap-2 bg-[#493129]/80 backdrop-blur-md px-3 py-1.5 rounded-badge border border-white/20">
+        <div className="flex items-center gap-2 bg-[#1A1A1A]/80 backdrop-blur-md px-3 py-1.5 rounded-badge border border-white/20">
           {images.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               aria-label={`Go to slide ${idx + 1}`}
               className={`h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex ? "w-6 bg-[#8B597B]" : "w-2 bg-white/40 hover:bg-white/70"
+                idx === currentIndex ? "w-6 bg-[#C49A3C]" : "w-2 bg-white/40 hover:bg-white/70"
               }`}
             />
           ))}
@@ -70,14 +70,14 @@ function CarImageCarousel({ images, carName }) {
           <button
             onClick={prevSlide}
             aria-label="Previous image"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#F0DED2] bg-white text-[#493129] hover:bg-[#8B597B] hover:text-white transition-colors shadow-soft"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#E8E4DC] bg-white text-[#1A1A1A] hover:bg-[#C49A3C] hover:text-white transition-colors shadow-soft"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={nextSlide}
             aria-label="Next image"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#F0DED2] bg-white text-[#493129] hover:bg-[#8B597B] hover:text-white transition-colors shadow-soft"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-btn border border-[#E8E4DC] bg-white text-[#1A1A1A] hover:bg-[#C49A3C] hover:text-white transition-colors shadow-soft"
           >
             <ChevronRight size={18} />
           </button>
@@ -118,20 +118,20 @@ export default function Vehicle() {
   const carImages = Array.from(new Set(rawCarImages));
 
   return (
-    <main data-testid={`vehicle-page-${v.slug}`} className="pt-28 md:pt-36 bg-[#FFF8F2] text-[#493129]">
+    <main data-testid={`vehicle-page-${v.slug}`} className="pt-28 md:pt-36 bg-[#FAFAF8] text-[#1A1A1A]">
       {/* Breadcrumb */}
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 mb-6">
-        <div className="flex items-center gap-3 text-xs uppercase font-semibold text-[#856A63] font-body">
+        <div className="flex items-center gap-3 text-xs uppercase font-semibold text-[#6B6B6B] font-body">
           <Link
             to="/fleet"
-            className="inline-flex items-center gap-2 hover:text-[#8B597B] transition-colors"
+            className="inline-flex items-center gap-2 hover:text-[#C49A3C] transition-colors"
             data-testid="vehicle-back-link"
           >
             <ArrowLeft size={14} strokeWidth={2} />
             <span>Back to Fleet</span>
           </Link>
-          <span className="text-[#8B597B]">/</span>
-          <span className="text-[#493129] font-bold">{v.name}</span>
+          <span className="text-[#C49A3C]">/</span>
+          <span className="text-[#1A1A1A] font-bold">{v.name}</span>
         </div>
       </div>
 
@@ -139,13 +139,13 @@ export default function Vehicle() {
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 pb-12 md:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-7">
-            <span className="px-3 py-1 rounded-badge bg-[#FFF3EB] text-[#8B597B] border border-[#F0DED2] font-semibold text-xs uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-badge bg-[#F5F3EE] text-[#C49A3C] border border-[#E8E4DC] font-semibold text-xs uppercase tracking-wider">
               {v.category}
             </span>
-            <h1 className="mt-3 font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-[#493129] tracking-tight leading-tight">
+            <h1 className="mt-3 font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A] tracking-tight leading-tight">
               {v.name}
             </h1>
-            <p className="mt-4 text-lg text-[#6D4F47] font-body leading-relaxed max-w-xl">
+            <p className="mt-4 text-lg text-[#4A4A4A] font-body leading-relaxed max-w-xl">
               {v.tagline}
             </p>
 
@@ -161,7 +161,7 @@ export default function Vehicle() {
             </div>
 
             {/* Quick Specs Grid */}
-            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-white rounded-[20px] p-5 border border-[#F0DED2] shadow-soft">
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-white rounded-[20px] p-5 border border-[#E8E4DC] shadow-soft">
               <SpecItem Icon={Users} label="Seats" value={v.seats} />
               <SpecItem Icon={Gauge} label="Transmission" value={v.transmission} />
               <SpecItem Icon={Fuel} label="Fuel" value={v.fuel} />
@@ -179,12 +179,12 @@ export default function Vehicle() {
       {/* Story & Highlights */}
       <section
         data-testid="vehicle-story"
-        className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#F0DED2]"
+        className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#E8E4DC]"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <div className="md:col-span-7">
             <Reveal>
-              <h2 className="font-display font-medium text-2xl md:text-3xl text-[#493129] leading-relaxed">
+              <h2 className="font-display font-medium text-2xl md:text-3xl text-[#1A1A1A] leading-relaxed">
                 {v.story}
               </h2>
             </Reveal>
@@ -192,11 +192,11 @@ export default function Vehicle() {
 
           <div className="md:col-span-5">
             <Reveal delay={0.08}>
-              <h3 className="text-xs uppercase font-semibold tracking-wider text-[#8B597B] mb-4">Highlights &amp; Features</h3>
+              <h3 className="text-xs uppercase font-semibold tracking-wider text-[#C49A3C] mb-4">Highlights &amp; Features</h3>
               <ul className="space-y-3">
                 {v.highlights.map((h, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm font-semibold text-[#493129] bg-white px-4 py-3 rounded-[16px] border border-[#F0DED2] shadow-soft font-body">
-                    <CheckCircle2 size={18} className="text-[#8B597B] shrink-0" />
+                  <li key={i} className="flex items-center gap-3 text-sm font-semibold text-[#1A1A1A] bg-white px-4 py-3 rounded-[16px] border border-[#E8E4DC] shadow-soft font-body">
+                    <CheckCircle2 size={18} className="text-[#C49A3C] shrink-0" />
                     <span>{h}</span>
                   </li>
                 ))}
@@ -208,27 +208,27 @@ export default function Vehicle() {
 
       {/* Pricing Sheet for vehicle */}
       {isChauffeur && chauffeurTable && (
-        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#F0DED2]">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#493129] tracking-tight mb-6">
-            Chauffeur Rates &amp; <span className="text-[#8B597B]">Packages</span>
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#E8E4DC]">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#1A1A1A] tracking-tight mb-6">
+            Chauffeur Rates &amp; <span className="text-[#C49A3C]">Packages</span>
           </h2>
-          <div className="rounded-[24px] bg-white p-6 md:p-8 border border-[#F0DED2] shadow-card overflow-hidden">
+          <div className="rounded-[24px] bg-white p-6 md:p-8 border border-[#E8E4DC] shadow-card overflow-hidden">
             <table className="goa-table min-w-[600px]">
               <thead>
                 <tr>
-                  <th className="font-heading font-bold text-[#493129]">Package</th>
-                  <th className="font-heading font-bold text-[#493129]">Rate</th>
-                  <th className="font-heading font-bold text-[#493129]">Extra Km</th>
-                  <th className="font-heading font-bold text-[#493129]">Extra Hour</th>
+                  <th className="font-heading font-bold text-[#1A1A1A]">Package</th>
+                  <th className="font-heading font-bold text-[#1A1A1A]">Rate</th>
+                  <th className="font-heading font-bold text-[#1A1A1A]">Extra Km</th>
+                  <th className="font-heading font-bold text-[#1A1A1A]">Extra Hour</th>
                 </tr>
               </thead>
               <tbody>
                 {chauffeurTable.rows.map((r, i) => (
-                  <tr key={i} className="hover:bg-[#FFF3EB] transition-colors">
-                    <td className="font-bold text-[#493129] font-body">{r.pkg}</td>
-                    <td className="price font-heading font-bold text-[#493129] text-2xl">{r.price}</td>
-                    <td className="text-[#6D4F47] font-body">{r.extraKm}</td>
-                    <td className="text-[#6D4F47] font-body">{r.extraHr}</td>
+                  <tr key={i} className="hover:bg-[#F5F3EE] transition-colors">
+                    <td className="font-bold text-[#1A1A1A] font-body">{r.pkg}</td>
+                    <td className="price font-heading font-bold text-[#1A1A1A] text-2xl">{r.price}</td>
+                    <td className="text-[#4A4A4A] font-body">{r.extraKm}</td>
+                    <td className="text-[#4A4A4A] font-body">{r.extraHr}</td>
                   </tr>
                 ))}
               </tbody>
@@ -238,26 +238,26 @@ export default function Vehicle() {
       )}
 
       {isSelfDrive && selfDriveRow && (
-        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#F0DED2]">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#493129] tracking-tight mb-6">
-            Self-Drive Rental <span className="text-[#8B597B]">Charges</span>
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#E8E4DC]">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#1A1A1A] tracking-tight mb-6">
+            Self-Drive Rental <span className="text-[#C49A3C]">Charges</span>
           </h2>
-          <div className="rounded-[24px] bg-white p-6 md:p-8 border border-[#F0DED2] shadow-card overflow-hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="rounded-[24px] bg-white p-6 md:p-8 border border-[#E8E4DC] shadow-card overflow-hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div>
-              <p className="text-xs font-semibold text-[#856A63] uppercase">Manual Rate</p>
-              <p className="font-heading font-bold text-3xl text-[#493129] mt-1">{selfDriveRow.manual}</p>
+              <p className="text-xs font-semibold text-[#6B6B6B] uppercase">Manual Rate</p>
+              <p className="font-heading font-bold text-3xl text-[#1A1A1A] mt-1">{selfDriveRow.manual}</p>
             </div>
             <div>
-              <p className="text-xs font-semibold text-[#856A63] uppercase">Automatic Rate</p>
-              <p className="font-heading font-bold text-3xl text-[#493129] mt-1">{selfDriveRow.auto}</p>
+              <p className="text-xs font-semibold text-[#6B6B6B] uppercase">Automatic Rate</p>
+              <p className="font-heading font-bold text-3xl text-[#1A1A1A] mt-1">{selfDriveRow.auto}</p>
             </div>
             <div>
-              <p className="text-xs font-semibold text-[#856A63] uppercase">Delivery / Pickup</p>
-              <p className="font-heading font-bold text-xl text-[#493129] mt-1">₹500 / ₹500</p>
+              <p className="text-xs font-semibold text-[#6B6B6B] uppercase">Delivery / Pickup</p>
+              <p className="font-heading font-bold text-xl text-[#1A1A1A] mt-1">₹500 / ₹500</p>
             </div>
             <div>
-              <p className="text-xs font-semibold text-[#856A63] uppercase">Refundable Deposit</p>
-              <p className="font-heading font-bold text-xl text-[#493129] mt-1">{selfDriveRow.deposit}</p>
+              <p className="text-xs font-semibold text-[#6B6B6B] uppercase">Refundable Deposit</p>
+              <p className="font-heading font-bold text-xl text-[#1A1A1A] mt-1">{selfDriveRow.deposit}</p>
             </div>
           </div>
         </section>
@@ -265,9 +265,9 @@ export default function Vehicle() {
 
       {/* Related Fleet */}
       {related.length > 0 && (
-        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#F0DED2]">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#493129] tracking-tight mb-8">
-            Similar <span className="text-[#8B597B]">Rides in Goa</span>
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 py-12 md:py-16 border-t border-[#E8E4DC]">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#1A1A1A] tracking-tight mb-8">
+            Similar <span className="text-[#C49A3C]">Rides in Goa</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {related.map((rv, i) => (
@@ -292,11 +292,11 @@ export default function Vehicle() {
 function SpecItem({ Icon, label, value }) {
   return (
     <div className="flex flex-col">
-      <div className="flex items-center gap-1.5 text-xs text-[#856A63] font-body">
-        <Icon size={16} className="text-[#8B597B] shrink-0" />
+      <div className="flex items-center gap-1.5 text-xs text-[#6B6B6B] font-body">
+        <Icon size={16} className="text-[#C49A3C] shrink-0" />
         <span>{label}</span>
       </div>
-      <span className="font-heading font-bold text-base text-[#493129] mt-1">{value}</span>
+      <span className="font-heading font-bold text-base text-[#1A1A1A] mt-1">{value}</span>
     </div>
   );
 }
